@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+.ravensu{
+    display: inline;
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 75px;
+}
+
+#su{
+    color: gray;
+}

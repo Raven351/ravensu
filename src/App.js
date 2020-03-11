@@ -2,20 +2,17 @@ import React from 'react';
 import './App.css';
 import Title from './components/title'
 import Welcome from './components/welcome'
-import { Grid } from '@material-ui/core';
+import { Grid, AppBar, Box } from '@material-ui/core';
+import RavensuAppBar from './components/RavensuAppBar'
 
 function App() {
   return (
     <>
-    <div className="App">
-      <Grid container className = "title">
-        <Grid item xs ={8} m={6} className = "title">
-          <Title/>
-        </Grid>
-        <Grid item xs = {4} m={6}>
-          <Welcome className = "welcome"/>
-        </Grid>
-      </Grid>
+    <div className = "App">
+      <Box p ={4} color = "transparent">
+      <RavensuAppBar/>
+      </Box>
+
     </div>
     </>
   );

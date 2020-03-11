@@ -2,11 +2,16 @@ import React from 'react'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab'
 import { makeStyles, AppBar } from '@material-ui/core';
+import SocialMedia from './SocialMedia'
 
 const useStyles = makeStyles(theme => ({
     tabs: {
         backgroundColor: "#ffffff"
+    },
+    tab: {
+        flexGrow:1
     }
+
 }))
 
 function MenuTabs(){
@@ -24,6 +29,7 @@ function MenuTabs(){
             <Tab label = "Skills" id = "tab-2" disableTouchRipple = "true"/>
             <Tab label = "Sample projects" id = "tab-3" disableTouchRipple = "true"/>
             <Tab label = "Contact" id = "tab-4" disableTouchRipple = "true"/>
+            <SocialMedia style={{flexGrow: 5}}/>
         </Tabs>
     )
 }

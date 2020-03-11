@@ -2,6 +2,7 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import MenuTabs from './Tabs/MenuTabs'
 import { makeStyles } from '@material-ui/core'
+import SocialMedia from './Tabs/SocialMedia'
 
 const useStyles = makeStyles(theme =>({
 

@@ -6,7 +6,7 @@ import {makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     socialMediaDiv : {
-        marginTop: theme.spacing(1),
+        //marginTop: theme.spacing(1),
         display: 'flex'
     },
 

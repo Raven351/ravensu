@@ -66,8 +66,7 @@ function MenuTabs({width}){
 
     return(
         <div className = {classes.grow}>
-            <Tabs value={value} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps}>
-            {/* <IconButton
+            <IconButton
                 edge = "start"
                 className = {classes.menuButton}
                 color = "inherit"
@@ -76,8 +75,8 @@ function MenuTabs({width}){
                 onClick = {handleMenuClick} 
             >
                 <MenuIcon/>
-            </IconButton> */}
-            {/* <Menu
+            </IconButton>
+            <Menu
                 id = 'menu'
                 anchorEl = {anchorEl}
                 keepMounted
@@ -85,7 +84,8 @@ function MenuTabs({width}){
                 onClose = {handleMenuClose}
             >
                 <MenuItem onClick={handleMenuClose}>Home</MenuItem>
-            </Menu> */}
+            </Menu>
+            <Tabs value={value} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps}>
                 <Tab label = "Home" id = "tab-0" disableTouchRipple = "true" className = {classes.tab}/>
                 <Tab label = "About" id ="tab-1" disableTouchRipple = "true" className = {classes.tab}/>
                 <Tab label = "Skills" id = "tab-2" disableTouchRipple = "true" className = {classes.tab}/>

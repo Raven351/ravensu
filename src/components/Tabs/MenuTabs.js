@@ -6,6 +6,7 @@ import { makeStyles, AppBar, Box, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu'
 import SocialMedia from './SocialMedia'
 import withWidth from '@material-ui/core/withWidth'
+import TabPanel from './TabPanel'
 
 const useStyles = makeStyles(theme => ({
     tabs: {

@@ -8,6 +8,7 @@ import {makeStyles } from '@material-ui/core'
 import Particles from 'react-particles-js'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import TabPanel from './components/Tabs/TabPanel'
 
 const useStyles = makeStyles(theme=>({
   navbarBox:{
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme=>({
   },
   siteContent:{
     position: "absolute",
-    top: 0,
+    top: 128,
     left: 0,
     width: "100%",
     height: "100%"
@@ -48,7 +49,9 @@ function App() {
         }
       }}/>
         <Box className = {classes.siteContent}>
+          <TabPanel value = {RavensuAppBar.state.tabValue} index = {0}>
 
+          </TabPanel>
         </Box>
     </div>
     </>

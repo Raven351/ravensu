@@ -2,7 +2,7 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import MenuTabs from './Tabs/MenuTabs'
-import { makeStyles, Drawer, Box} from '@material-ui/core'
+import { makeStyles, Drawer, Box, SwipeableDrawer, List} from '@material-ui/core'
 import SocialMedia from './Tabs/SocialMedia'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -55,25 +55,37 @@ function AppBarMobile(){
         if (event.type === 'keydown' && (event.key==='Tab' || event.key === 'Shift')) return;
         setDrawerState(open)
     }
+
+    const drawerContent = () => (
+        <Box onClick = {toggleDrawer(false)} justifyContent = "center" display="flex">
+            <List>
+            <MenuTabs/>
+            </List>
+        </Box>
+        );
+
     return(
-        <AppBar position = "static" className = {classes.appBar} style={{ background: 'transparent', boxShadow: 'none'}}>
-            <Toolbar>
-                <IconButton
-                    edge = "start"
-                    aria-control = "menu"
-                    onClick = {toggleDrawer(true)}
-                >
-                    <MenuIcon style = {{color: "#ffffff"}}/>
-                </IconButton>
-                <Drawer open = {drawerState} onClose={toggleDrawer(false)} anchor = "top" variant = "temporary" >
-                    <Box onClick = {toggleDrawer(false)} justifyContent = "center" display="flex"><MenuTabs/></Box>
-                </Drawer>
-            </Toolbar>
-        </AppBar>
+        <div>
+            <AppBar position = "static" className = {classes.appBar} style={{ background: 'transparent', boxShadow: 'none'}} >
+                <Toolbar>
+                    <IconButton
+                        edge = "start"
+                        aria-control = "menu"
+                        onClick = {toggleDrawer(true)}
+                    >
+                        <MenuIcon style = {{color: "#ffffff"}}/>
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
+            <SwipeableDrawer open = {drawerState} onOpen={toggleDrawer(true)} onClose={toggleDrawer(false)} anchor = "top" variant = "temporary" >
+                {drawerContent()}
+            </SwipeableDrawer>
+        </div>
     );
 }
 
 function RavensuAppBar(props){
+    const [tabValue, setTabValue] = React.useState(0);
     if(isWidthUp('md', props.width)) return <AppBarNormal/>;
     else return <AppBarMobile/> 
 }

@@ -66,26 +66,7 @@ function MenuTabs({width}){
 
     return(
         <div className = {classes.grow}>
-            <IconButton
-                edge = "start"
-                className = {classes.menuButton}
-                color = "inherit"
-                disableTouchRipple = "true"
-                aria-control = "menu"
-                onClick = {handleMenuClick} 
-            >
-                <MenuIcon/>
-            </IconButton>
-            <Menu
-                id = 'menu'
-                anchorEl = {anchorEl}
-                keepMounted
-                open = {Boolean(anchorEl)}
-                onClose = {handleMenuClose}
-            >
-                <MenuItem onClick={handleMenuClose}>Home</MenuItem>
-            </Menu>
-            <Tabs value={value} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps}>
+            <Tabs value={value} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
                 <Tab label = "Home" id = "tab-0" disableTouchRipple = "true" className = {classes.tab}/>
                 <Tab label = "About" id ="tab-1" disableTouchRipple = "true" className = {classes.tab}/>
                 <Tab label = "Skills" id = "tab-2" disableTouchRipple = "true" className = {classes.tab}/>

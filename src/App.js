@@ -13,8 +13,22 @@ const useStyles = makeStyles(theme=>({
   navbarBox:{
     [theme.breakpoints.down("sm")]:{
       alignItems: "center",
-      alignContent: "center"
+      alignContent: "center",
     }
+  },
+  App:{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%"
+  },
+  siteContent:{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%"
   },
 }));
 
@@ -22,10 +36,10 @@ function App() {
   const classes = useStyles();
   return (
     <>
-    <div className = "App">
-      <Box p ={4} color = "transparent" className = {classes.navbarBox}>
-        <RavensuAppBar/>
-      </Box>
+    <div className = {classes.App}>
+        <Box p ={4} color = "transparent" className = {classes.navbarBox}>
+          <RavensuAppBar/>
+        </Box>
       <Particles params={{
         "particles":{
           "number":{
@@ -33,6 +47,9 @@ function App() {
           },
         }
       }}/>
+        <Box className = {classes.siteContent}>
+
+        </Box>
     </div>
     </>
   );

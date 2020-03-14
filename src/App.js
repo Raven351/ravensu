@@ -48,11 +48,6 @@ function App() {
           },
         }
       }}/>
-        <Box className = {classes.siteContent}>
-          <TabPanel value = {RavensuAppBar.state.tabValue} index = {0}>
-
-          </TabPanel>
-        </Box>
     </div>
     </>
   );

@@ -33,7 +33,6 @@ function AppBarNormal() {
     <AppBar position = "static" className = {classes.appBar} style={{ background: 'transparent', boxShadow: 'none'}}>
         <Toolbar>
             <MenuTabs/>
-            <div className = {classes.socialMedia}><SocialMedia/></div>
         </Toolbar>            
     </AppBar> 
     );

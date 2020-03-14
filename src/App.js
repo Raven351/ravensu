@@ -11,18 +11,15 @@ import MenuIcon from '@material-ui/icons/Menu'
 import TabPanel from './components/Tabs/TabPanel'
 
 const useStyles = makeStyles(theme=>({
-  navbarBox:{
+  app:{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "99%",
     [theme.breakpoints.down("sm")]:{
       alignItems: "center",
       alignContent: "center",
     }
-  },
-  App:{
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%"
   },
   siteContent:{
     position: "absolute",
@@ -37,17 +34,19 @@ function App() {
   const classes = useStyles();
   return (
     <>
-    <div className = {classes.App}>
-        <Box p ={4} color = "transparent" className = {classes.navbarBox}>
-          <RavensuAppBar/>
-        </Box>
+    <div styles = {{zIndex: -1, position: "absolute", top: 0, left:0}} />
+    <div className = {classes.app}>
       <Particles params={{
         "particles":{
           "number":{
             "value": 80
           },
         }
+        
       }}/>
+      <Box p ={4} color = "transparent" className = {classes.app}>
+        <RavensuAppBar/>
+      </Box>
     </div>
     </>
   );

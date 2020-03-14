@@ -7,6 +7,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 import SocialMedia from './SocialMedia'
 import withWidth from '@material-ui/core/withWidth'
 import TabPanel from './TabPanel'
+import Grid from '@material-ui/core/Grid'
+import Home from './Home'
 
 const useStyles = makeStyles(theme => ({
     tabs: {
@@ -93,10 +95,19 @@ function MenuTabs({width}){
             </div>
             <div style = {{height: "20px"}}></div>
             <TabPanel value = {value} index = {0}>
-                <Box p={4} m = {4}>
-                    <Paper>
-                        Item one
-                    </Paper>               
+                <Grid 
+                    container
+                    direction = "column"
+                    justify = "flex-start"
+                    aligntItems = "flex-start"
+                    style = {{marginTop: 150}}
+                >
+                    <Grid item>
+                        <Home/>
+                    </Grid>
+                </Grid>
+                <Box p={2} m = {2}>
+
                 </Box>
                 
             </TabPanel>

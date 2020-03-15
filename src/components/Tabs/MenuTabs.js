@@ -2,13 +2,14 @@ import React from 'react'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import IconButton from '@material-ui/core/IconButton'
-import { makeStyles, AppBar, Box, Menu, MenuItem, Paper } from '@material-ui/core';
+import { makeStyles, AppBar, Box, Menu, MenuItem, Paper, Fade, Grow } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu'
 import SocialMedia from './SocialMedia'
 import withWidth from '@material-ui/core/withWidth'
 import TabPanel from './TabPanel'
 import Grid from '@material-ui/core/Grid'
 import Home from './Home'
+import AboutMe from './About'
 
 const useStyles = makeStyles(theme => ({
     tabs: {
@@ -83,8 +84,8 @@ function MenuTabs({width}){
                         <Tabs className = {classes.tabs} value={value} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
                             <Tab label = "Home" id = "tab-0" disableTouchRipple = "true" className = {classes.tab}/>
                             <Tab label = "About" id ="tab-1" disableTouchRipple = "true" className = {classes.tab}/>
-                            <Tab label = "Skills" id = "tab-2" disableTouchRipple = "true" className = {classes.tab}/>
-                            <Tab label = "Sample projects" id = "tab-3" disableTouchRipple = "true" className = {classes.tab}/>
+                            <Tab label = "Sample projects" id = "tab-2" disableTouchRipple = "true" className = {classes.tab}/>
+                            <Tab label = "Hobbies" id = "tab-3" disableTouchRipple = "true" className = {classes.tab}/>
                             <Tab label = "Contact" id = "tab-4" disableTouchRipple = "true" className = {classes.tab}/>
                         </Tabs>           
                     </Box>                  
@@ -102,14 +103,28 @@ function MenuTabs({width}){
                     aligntItems = "flex-start"
                     style = {{marginTop: 150}}
                 >
-                    <Grid item>
-                        <Home/>
-                    </Grid>
-                </Grid>
-                <Box p={2} m = {2}>
+                    <Grow in = {value === 0} timeout = {500} >
+                        <Grid item>
+                                <Home/>
+                        </Grid>
+                    </Grow>
+                </Grid>           
+            </TabPanel>
+            <TabPanel value = {value} index = {1}>
+            <Grow in = {value === 1} timeout = {500} >
+                <Grid
+                    container
+                    direction = "row"
+                    justify = "space-evenly"
+                    aligntItems = "center"
+                    style = {{marginTop: 50}}
+                     >
 
-                </Box>
-                
+                        <Grid item>
+                                <AboutMe/>
+                        </Grid>
+                    </Grid>
+                </Grow>
             </TabPanel>
         </div>
     )

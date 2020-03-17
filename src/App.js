@@ -44,9 +44,9 @@ function App() {
         }
         
       }}/>
-      <Box p ={4} color = "transparent" className = {classes.app}>
+      <div style = {{marginTop: 30}} color = "transparent" className = {classes.app}>
         <RavensuAppBar/>
-      </Box>
+      </div>
     </div>
     </>
   );

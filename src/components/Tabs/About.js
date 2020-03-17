@@ -9,6 +9,7 @@ import SmsIcon from '@material-ui/icons/Sms';
 import AboutCard from '../Cards/AboutCard'
 import AboutDetails from '../Cards/AboutDetails'
 import AboutTechs from '../Cards/AboutTechs';
+import withWidth from '@material-ui/core/withWidth'
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -42,25 +43,35 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function About(){
+function About({width}){
     const classes = useStyles();
-        return(
-            <Grid 
-            container
-            direction = "row"
-            justify = "center"
-            alignItems = "center"
-            spacing = {2}
-            >
-                <Grid container item md = {6} alignItems = "center" justify = "center">
-                    <AboutCard/>
-                </Grid>
-                <Grid container item md = {6} direction = "column" >
-                    <Grid item>
+    const isMedium = /md/.test(width);
+    const gridProps = {
+        alignItems: isMedium ? "center" : "flex-end"
+    }
+    return(
+        <Grid //main container
+        container
+        direction = "row"
+        justify = "flex-start"
+        alignItems = "flex-start"
+        spacing = {2}            
+        >
+            <Grid container item md = {6} lg = {4} direction = "column" alignItems = "flex-end" justify = "flex-start">
+                <AboutCard/>
+            </Grid>
+            <Grid container item md = {6} lg = {8} direction = "column" justify="flex-start" alignItems = "flex-start">
+                <Paper style = {{padding: 25, maxWidth: 800}}>
+                    <Grid item >
                         <AboutDetails/>
+                    </Grid>
+                    <Grid item >
                         <AboutTechs/>
                     </Grid>
-                </Grid>
+                </Paper>
             </Grid>
-        );
-    }
+        </Grid>
+    );
+}
+
+export default withWidth()(About)

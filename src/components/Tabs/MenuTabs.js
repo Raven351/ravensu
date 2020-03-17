@@ -119,10 +119,7 @@ function MenuTabs({width}){
                     aligntItems = "center"
                     style = {{marginTop: 50}}
                      >
-
-                        <Grid item>
-                                <AboutMe/>
-                        </Grid>
+                        <AboutMe/>
                     </Grid>
                 </Grow>
             </TabPanel>

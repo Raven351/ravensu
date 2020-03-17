@@ -7,6 +7,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import SchoolIcon from '@material-ui/icons/School';
 import SmsIcon from '@material-ui/icons/Sms';
 import AboutCard from '../Cards/AboutCard'
+import AboutDetails from '../Cards/AboutDetails'
+import AboutTechs from '../Cards/AboutTechs';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -43,6 +45,22 @@ const useStyles = makeStyles(theme => ({
 export default function About(){
     const classes = useStyles();
         return(
-            <AboutCard/>
-        )
+            <Grid 
+            container
+            direction = "row"
+            justify = "center"
+            alignItems = "center"
+            spacing = {2}
+            >
+                <Grid container item md = {6} alignItems = "center" justify = "center">
+                    <AboutCard/>
+                </Grid>
+                <Grid container item md = {6} direction = "column" >
+                    <Grid item>
+                        <AboutDetails/>
+                        <AboutTechs/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        );
     }

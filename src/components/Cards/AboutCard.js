@@ -6,10 +6,10 @@ import ProfilePicture from "../../img/profilepicture.jpg"
 import HomeIcon from '@material-ui/icons/Home';
 import SchoolIcon from '@material-ui/icons/School';
 import SmsIcon from '@material-ui/icons/Sms';
+import WorkIcon from '@material-ui/icons/Work';
 
 const useStyles = makeStyles(theme => ({
     paper: {
-        padding: 20,
         color: "#000000",
         backgroundColor: "#ebebeb",
         opacity: "86%",
@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     },
 
     card: {
-        maxWidth: 350,
         minWidth: 400,
         //backgroundColor: "transparent"
     },
@@ -116,6 +115,20 @@ export default function AboutCard(){
                             </Typography>
                         </Grid>
                     </CardContentGridDescriptionElement>
+                    <CardContentGridDescriptionElement >
+                        <Grid item style = {{marginTop: 20}} >
+                            <WorkIcon/> 
+                        </Grid>
+                        <Grid item >
+                            <Typography
+                            variant = "body1"
+                            align = "center"                     
+                            >
+                                Freelancer<br/>
+                                Available for hire
+                            </Typography>
+                        </Grid>
+                    </CardContentGridDescriptionElement>
                     <CardContentGridDescriptionElement>
                         <Grid item style = {{marginTop: 20}}>
                             <SchoolIcon/> 
@@ -145,6 +158,7 @@ export default function AboutCard(){
                             </Typography>
                         </Grid>
                     </CardContentGridDescriptionElement>
+
                 </CardContentGrid>
 
             </CardContent>

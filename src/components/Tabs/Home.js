@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Paper, makeStyles, Typography} from '@material-ui/core'
+import {Box, Paper, makeStyles, Typography, createMuiTheme, ThemeProvider} from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -17,15 +17,26 @@ const useStyles = makeStyles(theme => ({
 
 export default function Home(){
 const classes = useStyles();
+const theme = createMuiTheme({    
+    typography:{
+            fontFamily:[
+                '"Fredoka One"'
+            ]
+        }
+    }
+)
     return(
         <Paper className = {classes.paper} style = {{width: "40%"}} elevation = "0">
-            <Typography
-                variant = "h4"
-                component = "h1"
-                paragraph = "true"
-            >
-                Welcome to the nest
-            </Typography>
+            <ThemeProvider theme = {theme}>
+                <Typography
+                    variant = "h4"
+                    component = "h1"
+                    paragraph = "true"
+                >
+                    Welcome to the nest
+                </Typography>
+            </ThemeProvider>
+
             <Typography
                 variant = "body1"
             >

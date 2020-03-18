@@ -72,10 +72,7 @@ function MenuTabs(props){
                 <Box display = "flex" className = {classes.appBar}>
                     <Box flexGrow = {1} display = "flex">
                         <Tabs className = {classes.tabs} value={props.history.location.pathname} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
-                            <Tab label = "Home" disableTouchRipple = "true" className = {classes.tab} value = '/'
-                            >
-                                
-                            </Tab>
+                            <Tab label = "Home" disableTouchRipple = "true" className = {classes.tab} value = '/'/>
                             <Tab label = "About" id ="tab-1" disableTouchRipple = "true" className = {classes.tab} value = '/about'/>
                             <Tab label = "Sample projects" id = "tab-2" disableTouchRipple = "true" className = {classes.tab}/>
                             <Tab label = "Hobbies" id = "tab-3" disableTouchRipple = "true" className = {classes.tab}/>
@@ -88,7 +85,7 @@ function MenuTabs(props){
                 </Box>
             </div>
             <div style = {{height: "20px"}}></div>
-            <TabPanel value = '/' index = '/'>
+            <TabPanel value = {props.history.location.pathname} index = '/'>
                 <Grid 
                     container
                     direction = "column"
@@ -103,7 +100,7 @@ function MenuTabs(props){
                     </Grow>
                 </Grid>           
             </TabPanel>
-            <TabPanel value = '/about' index = '/about'>
+            <TabPanel value = {props.history.location.pathname} index = '/about'>
             <Grow in = {props.history.location.pathname === '/about'} timeout = {500} >
                 <Grid
                     container

@@ -2,7 +2,6 @@ import React from 'react'
 import { Chip, Avatar, Paper, Tooltip, Typography, Grid, Box } from '@material-ui/core'
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import ChashLogo from "../../img/ChipsLogos/chashlogo.png"
 
 const Picture = props => (
     <Avatar source={props.source} />

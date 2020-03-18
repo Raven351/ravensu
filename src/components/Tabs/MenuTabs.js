@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter, useLocation, useHistory} from 'react-router-dom'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import IconButton from '@material-ui/core/IconButton'
@@ -52,38 +53,30 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-function MenuTabs({width}){
+function MenuTabs(props){
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null)
 
-    const isMobile = /xs|sm/.test(width);
-    const isSmall = /sm/.test(width);
+    const isMobile = /xs|sm/.test(props.width);
+    const isSmall = /sm/.test(props.width);
     const tabsProps = {
         orientation: isMobile ? "vertical" : "horizontal",
     };
-
     const handleChange = (event, newValue) =>{
-        setValue (newValue);
+        props.history.push(newValue);
     };
-
-    const handleMenuClick = event =>{
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClose = (newValue) =>{
-        handleChange(newValue);
-        setAnchorEl(null);
-    }
 
     return(
         <div className = {classes.grow}>
             <div className = {classes.appBar}>
                 <Box display = "flex" className = {classes.appBar}>
                     <Box flexGrow = {1} display = "flex">
-                        <Tabs className = {classes.tabs} value={value} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
-                            <Tab label = "Home" id = "tab-0" disableTouchRipple = "true" className = {classes.tab}/>
-                            <Tab label = "About" id ="tab-1" disableTouchRipple = "true" className = {classes.tab}/>
+                        <Tabs className = {classes.tabs} value={props.history.location.pathname} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
+                            <Tab label = "Home" disableTouchRipple = "true" className = {classes.tab} value = '/'
+                            >
+                                
+                            </Tab>
+                            <Tab label = "About" id ="tab-1" disableTouchRipple = "true" className = {classes.tab} value = '/about'/>
                             <Tab label = "Sample projects" id = "tab-2" disableTouchRipple = "true" className = {classes.tab}/>
                             <Tab label = "Hobbies" id = "tab-3" disableTouchRipple = "true" className = {classes.tab}/>
                             <Tab label = "Contact" id = "tab-4" disableTouchRipple = "true" className = {classes.tab}/>
@@ -95,7 +88,7 @@ function MenuTabs({width}){
                 </Box>
             </div>
             <div style = {{height: "20px"}}></div>
-            <TabPanel value = {value} index = {0}>
+            <TabPanel value = '/' index = '/'>
                 <Grid 
                     container
                     direction = "column"
@@ -103,15 +96,15 @@ function MenuTabs({width}){
                     aligntItems = "flex-start"
                     style = {{marginTop: 150}}
                 >
-                    <Grow in = {value === 0} timeout = {500} >
+                    <Grow in = {props.history.location.pathname === '/'} timeout = {500} >
                         <Grid item>
                                 <Home/>
                         </Grid>
                     </Grow>
                 </Grid>           
             </TabPanel>
-            <TabPanel value = {value} index = {1}>
-            <Grow in = {value === 1} timeout = {500} >
+            <TabPanel value = '/about' index = '/about'>
+            <Grow in = {props.history.location.pathname === '/about'} timeout = {500} >
                 <Grid
                     container
                     direction = "row"
@@ -127,4 +120,4 @@ function MenuTabs({width}){
     )
 }
 
-export default withWidth()(MenuTabs)
+export default withRouter(withWidth()(MenuTabs))

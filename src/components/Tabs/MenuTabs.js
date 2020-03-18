@@ -11,6 +11,7 @@ import TabPanel from './TabPanel'
 import Grid from '@material-ui/core/Grid'
 import Home from './Home'
 import AboutMe from './About'
+import Projects from './Projects'
 
 const useStyles = makeStyles(theme => ({
     tabs: {
@@ -55,8 +56,6 @@ const useStyles = makeStyles(theme => ({
 
 function MenuTabs(props){
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null)
-
     const isMobile = /xs|sm/.test(props.width);
     const isSmall = /sm/.test(props.width);
     const tabsProps = {
@@ -65,18 +64,17 @@ function MenuTabs(props){
     const handleChange = (event, newValue) =>{
         props.history.push(newValue);
     };
-
     return(
         <div className = {classes.grow}>
             <div className = {classes.appBar}>
-                <Box display = "flex" className = {classes.appBar}>
+                <Box display = "flex" className = {classes.appBar} component = 'nav'>
                     <Box flexGrow = {1} display = "flex">
                         <Tabs className = {classes.tabs} value={props.history.location.pathname} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
-                            <Tab label = "Home" disableTouchRipple = "true" className = {classes.tab} value = '/'/>
-                            <Tab label = "About" id ="tab-1" disableTouchRipple = "true" className = {classes.tab} value = '/about'/>
-                            <Tab label = "Sample projects" id = "tab-2" disableTouchRipple = "true" className = {classes.tab}/>
-                            <Tab label = "Hobbies" id = "tab-3" disableTouchRipple = "true" className = {classes.tab}/>
-                            <Tab label = "Contact" id = "tab-4" disableTouchRipple = "true" className = {classes.tab}/>
+                            <Tab label = "Home" id = "tab-0" disableTouchRipple = "true" className = {classes.tab} value = '/'/>
+                            <Tab label = "About" disableTouchRipple = "true" className = {classes.tab} value = '/about'/>
+                            <Tab label = "Sample projects" disableTouchRipple = "true" className = {classes.tab} value = '/projects'/>
+                            <Tab label = "Hobbies" disableTouchRipple = "true" className = {classes.tab} value = '/hobbies'/>
+                            <Tab label = "Contact" disableTouchRipple = "true" className = {classes.tab} value = '/contact'/>
                         </Tabs>           
                     </Box>                  
                     <Box>
@@ -86,30 +84,32 @@ function MenuTabs(props){
             </div>
             <div style = {{height: "20px"}}></div>
             <TabPanel value = {props.history.location.pathname} index = '/'>
-                <Grid 
+                <Grow in = {props.history.location.pathname === '/'} timeout = {500}>
+                    <Grid 
                     container
-                    direction = "column"
-                    justify = "flex-start"
-                    aligntItems = "flex-start"
                     style = {{marginTop: 150}}
-                >
-                    <Grow in = {props.history.location.pathname === '/'} timeout = {500} >
-                        <Grid item>
-                                <Home/>
-                        </Grid>
-                    </Grow>
-                </Grid>           
+                    >
+                        <Home/>
+                    </Grid>
+                </Grow>      
             </TabPanel>
             <TabPanel value = {props.history.location.pathname} index = '/about'>
-            <Grow in = {props.history.location.pathname === '/about'} timeout = {500} >
-                <Grid
+                <Grow in = {props.history.location.pathname === '/about'} timeout = {500} >
+                    <Grid
                     container
-                    direction = "row"
-                    justify = "space-evenly"
-                    aligntItems = "center"
                     style = {{marginTop: 50}}
-                     >
+                    >
                         <AboutMe/>
+                    </Grid>
+                </Grow>
+            </TabPanel>
+            <TabPanel value = {props.history.location.pathname} index = '/projects'>
+                <Grow in = {props.history.location.pathname === '/projects'} timeout = {500} >
+                    <Grid
+                    container
+                    style = {{marginTop: 50}}
+                    >
+                        <Projects/>
                     </Grid>
                 </Grow>
             </TabPanel>

@@ -9,7 +9,7 @@ const useStyles = makeStyles( theme => ({
     },
     media: {
         height: 150,
-        with: 300,
+        width: 300,
     },
 }));
 

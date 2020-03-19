@@ -64,12 +64,25 @@ function MenuTabs(props){
     const handleChange = (event, newValue) =>{
         props.history.push(newValue);
     };
+
+    const parentPath = () =>{
+        var path = props.history.location.pathname;
+        var count = (path.match(/\//g) || []).length;
+        if (count <= 1) return path;
+        else {
+            var firstOccurence = path.indexOf("/");
+            var secondOccurence = path.indexOf("/", firstOccurence + 1);
+            var returnString = path.substring(0,secondOccurence);
+            return path.substring(0,secondOccurence);
+        }
+    }
+
     return(
         <div className = {classes.grow}>
             <div className = {classes.appBar}>
                 <Box display = "flex" className = {classes.appBar} component = 'nav'>
                     <Box flexGrow = {1} display = "flex">
-                        <Tabs className = {classes.tabs} value={props.history.location.pathname} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
+                        <Tabs className = {classes.tabs} value={parentPath()} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
                             <Tab label = "Home" id = "tab-0" disableTouchRipple = "true" className = {classes.tab} value = '/'/>
                             <Tab label = "About" disableTouchRipple = "true" className = {classes.tab} value = '/about'/>
                             <Tab label = "Sample projects" disableTouchRipple = "true" className = {classes.tab} value = '/projects'/>

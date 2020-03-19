@@ -33,10 +33,10 @@ function ShowLanguages(indexes){
     );
 }
 
-export function ProjectCard({ title, desc, technologies, image }) {
+export function ProjectCard({ title, desc, technologies, image, onClick }) {
     const classes = useStyles();
     return (<Card className={classes.root}>
-        <CardActionArea>
+        <CardActionArea onClick = {onClick}>
             <CardMedia className={classes.media} image={image} />
             <CardContent>
                 <Grid id="langauge-icons-grid" container direction="row" justify="flex-end" alignItems="flex-start" spacing={0}>

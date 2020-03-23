@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid'
 import Home from './Home'
 import AboutMe from './About'
 import Projects from './Projects'
+import ProjectDetailsCard from '../Cards/ProjectDetailsCard';
 
 const useStyles = makeStyles(theme => ({
     tabs: {
@@ -58,6 +59,7 @@ function MenuTabs(props){
     const classes = useStyles();
     const isMobile = /xs|sm/.test(props.width);
     const isSmall = /sm/.test(props.width);
+    const [projectName, setProjectName] = React.useState('');
     const tabsProps = {
         orientation: isMobile ? "vertical" : "horizontal",
     };
@@ -85,7 +87,7 @@ function MenuTabs(props){
                         <Tabs className = {classes.tabs} value={parentPath()} onChange={handleChange} classes = {{indicator: classes.tabsIndicator} } textColor = "inherit" {...tabsProps} >
                             <Tab label = "Home" id = "tab-0" disableTouchRipple = "true" className = {classes.tab} value = '/'/>
                             <Tab label = "About" disableTouchRipple = "true" className = {classes.tab} value = '/about'/>
-                            <Tab label = "Sample projects" disableTouchRipple = "true" className = {classes.tab} value = '/projects'/>
+                            <Tab label = "Sample projects" disableTouchRipple = "true" className = {classes.tab} value = {`/projects`}/>
                             <Tab label = "Hobbies" disableTouchRipple = "true" className = {classes.tab} value = '/hobbies'/>
                             <Tab label = "Contact" disableTouchRipple = "true" className = {classes.tab} value = '/contact'/>
                         </Tabs>           
@@ -100,7 +102,7 @@ function MenuTabs(props){
                 <Grow in = {props.history.location.pathname === '/'} timeout = {500}>
                     <Grid 
                     container
-                    style = {{marginTop: 150}}
+                    style = {{marginTop: 100}}
                     >
                         <Home/>
                     </Grid>
@@ -110,22 +112,32 @@ function MenuTabs(props){
                 <Grow in = {props.history.location.pathname === '/about'} timeout = {500} >
                     <Grid
                     container
-                    style = {{marginTop: 50}}
+                    alignItems = "center"
+                    justify = "center"
                     >
-                        <AboutMe/>
+                        <Grid item><AboutMe/></Grid>
                     </Grid>
                 </Grow>
             </TabPanel>
-            <TabPanel value = {props.history.location.pathname} index = '/projects'>
-                <Grow in = {props.history.location.pathname === '/projects'} timeout = {500} >
+            <TabPanel value = {props.history.location.pathname} index = {`/projects${projectName}`}>
+                <Grow in = {props.history.location.pathname === `/projects${projectName}`} timeout = {500} >
+                    <Box>
+                        <Projects setProjectName = {setProjectName}/> 
+                    </Box>                                       
+                </Grow>
+            </TabPanel>
+            {/* <TabPanel value = {props.history.location.pathname} index = '/projects/downhillpay'>
+                <Grow in = {props.history.location.pathname === '/projects/downhillpay'} timeout = {500} >
                     <Grid
                     container
+                    alignItems = "center"
+                    justify = "center"
                     style = {{marginTop: 50}}
                     >
-                        <Projects/>
+                        <Grid item><ProjectDetailsCard ProjectIndex = {0}/></Grid>
                     </Grid>
                 </Grow>
-            </TabPanel>
+            </TabPanel> */}
         </div>
     )
 }

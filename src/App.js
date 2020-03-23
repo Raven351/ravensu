@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route} from 'react-router-dom'
 import './App.css';
 import Title from './components/title'
 import Welcome from './components/welcome'
@@ -36,14 +37,14 @@ function App() {
     <>
     <div styles = {{zIndex: -1, position: "absolute", top: 0, left:0}} />
     <div className = {classes.app}>
-      <Particles params={{
+      {/* <Particles params={{
         "particles":{
           "number":{
             "value": 80
           },
         }
         
-      }}/>
+      }}/> */}
       <div style = {{marginTop: 30}} color = "transparent" className = {classes.app}>
         <RavensuAppBar/>
       </div>

@@ -14,7 +14,7 @@ function TabPanel(props) {
     id={`tabpanel-${index}`} 
     tabControl={`tab-${index}`} 
     {...other}>
-        {value === index && <Box p={3}>{children}</Box>}
+        {value === index && <Box p={3} style = {{marginTop: 50}}>{children}</Box>}
     </Typography>);
 }
 TabPanel.propTypes = {

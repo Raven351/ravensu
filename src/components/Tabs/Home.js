@@ -32,6 +32,7 @@ const theme = createMuiTheme({
                     variant = "h4"
                     component = "h1"
                     paragraph = "true"
+                    style = {{fontFamily: '"Fredoka One'}}
                 >
                     Welcome to the nest
                 </Typography>
@@ -39,6 +40,7 @@ const theme = createMuiTheme({
 
             <Typography
                 variant = "body1"
+                style = {{fontFamily: '"Fredoka One'}}
             >
                 <br/>Hello and welcome to my personal website. <br/><br/>My name is Bart and I am graduate of IT engineering studies focused on programming. <br/><br/>
                 On this webiste you can find more information about me, projects I've done, technologies I work with, but also about my hobbies. 

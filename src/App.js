@@ -10,6 +10,7 @@ import Particles from 'react-particles-js'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import TabPanel from './components/Tabs/TabPanel'
+import MainContentRouter from './components/MainContentRouter'
 
 const useStyles = makeStyles(theme=>({
   app:{
@@ -47,6 +48,7 @@ function App() {
       }}/> */}
       <div style = {{marginTop: 30}} color = "transparent" className = {classes.app}>
         <RavensuAppBar/>
+        <MainContentRouter/>
       </div>
     </div>
     </>

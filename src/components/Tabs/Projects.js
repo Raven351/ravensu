@@ -2,7 +2,7 @@ import React from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import {Grid} from '@material-ui/core'
 import { ProjectCard } from '../Cards/ProjectCard';
-import { withRouter, Route, useRouteMatch } from 'react-router-dom';
+import { withRouter, Route, useRouteMatch, Switch } from 'react-router-dom';
 import ProjectCardDetails from '../Cards/ProjectDetailsCard'
 
 export const useStyles = makeStyles( theme => ({
@@ -36,10 +36,14 @@ function Project(props){
                 lg = {8}
                 md = {6}
                 >
+                    <Switch>
                     {/* <Grid item><ProjectCard onClick = {() => {handleProjectCardClick(props.history.location.pathname + '/downhillpay'); props.setProjectName('/downhillpay')}} title = "Project Title" desc = "Short description of the project" image = "/img/ProjectsPictures/skiingphoto.jpg" technologies = {[0,1]}/></Grid> */}
-                    <Grid item><ProjectCard onClick = {() => props.setProjectName('/downhillpay')} title = "Project Title" desc = "Short description of the project" image = "/img/ProjectsPictures/skiingphoto.jpg" technologies = {[0,1]}/></Grid>
-                    <Grid item><ProjectCard title = "Some android app" desc = "Nice app" image = "/img/ProjectsPictures/bustestphoto.jpg" technologies = {[1]}/></Grid>    
-                    <Grid item><ProjectCard title = "Some android app" desc = "Nice app" image = "/img/ProjectsPictures/bustestphoto.jpg" technologies = {[1]}/></Grid>    
+                    {/* <Grid item><ProjectCard onClick = {() => {handleProjectCardClick(`${match.url}/downhillpay`); props.setProjectName('/downhillpay')}} title = "Project Title" desc = "Short description of the project" image = "/img/ProjectsPictures/skiingphoto.jpg" technologies = {[0,1]}/></Grid> */}
+                    {/* <Grid item><ProjectCard onClick = {() => props.setProjectName('/downhillpay')} title = "Project Title" desc = "Short description of the project" image = "/img/ProjectsPictures/skiingphoto.jpg" technologies = {[0,1]}/></Grid> */}
+                    {/* <Grid item><ProjectCard title = "Some android app" desc = "Nice app" image = "/img/ProjectsPictures/bustestphoto.jpg" technologies = {[1]}/></Grid>     */}
+                    {/* <Grid item><ProjectCard title = "Some android app" desc = "Nice app" image = "/img/ProjectsPictures/bustestphoto.jpg" technologies = {[1]}/></Grid>  */}
+                    </Switch>
+   
                 </Grid>
                 <Grid 
                 item

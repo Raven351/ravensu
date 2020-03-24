@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-function SocialMedia(){
+function SocialMedia(props){
     const classes = useStyles();
     return(
         <div className = {classes.socialMediaDiv}>        

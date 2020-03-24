@@ -5,7 +5,7 @@ import Tab from '@material-ui/core/Tab';
 import IconButton from '@material-ui/core/IconButton'
 import { makeStyles, AppBar, Box, Menu, MenuItem, Paper, Fade, Grow } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu'
-import SocialMedia from './SocialMedia'
+import SocialMedia from '../NavBar/SocialMedia'
 import withWidth from '@material-ui/core/withWidth'
 import TabPanel from './TabPanel'
 import Grid from '@material-ui/core/Grid'
@@ -64,6 +64,7 @@ function MenuTabs(props){
         orientation: isMobile ? "vertical" : "horizontal",
     };
     const handleChange = (event, newValue) =>{
+        if (newValue === '/projects') setProjectName('');
         props.history.push(newValue);
     };
 

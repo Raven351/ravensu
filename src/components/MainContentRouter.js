@@ -5,9 +5,16 @@ import Home from './Tabs/Home'
 import About from './Tabs/About'
 import Projects from './Tabs/Projects'
 
-function RenderRoute({children}){
+function RenderRoute({children, showAnimation}){
     const [mount, setMount] = React.useState(false);
     const RenderContent = () =>{
+        if (showAnimation === false){
+            return (
+                <Grid container style = {{marginTop: 100}}>
+                    {children}
+                </Grid>
+            )
+        }
         return (
             <Grow in = {mount === true}>
                 <Grid container style = {{marginTop: 100}}>
@@ -76,12 +83,13 @@ function MainContentRouter(){
                 <RenderRoute children = {<Home/>}/>
             </Route>
             <Route path ="/about">
-
-                    <RenderRoute children = {<About/>}/>
-                
+                <RenderRoute children = {<About/>}/>             
             </Route>
+            {/* <Route path = "/projects/:projectid">
+                <RenderRoute showAnimation = {false} children = {<Projects/>}/>
+            </Route> */}
             <Route path ="/projects">
-    <RenderRoute children = {<Projects/>}/>
+                <RenderRoute children = {<Projects/>}/>
             </Route>
         </Switch>
     );

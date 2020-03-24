@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {makeStyles} from '@material-ui/core/styles'
-import {Grid} from '@material-ui/core'
+import {Grid, Grow} from '@material-ui/core'
 import { ProjectCard } from '../Cards/ProjectCard';
-import { withRouter, Route, useRouteMatch, Switch, Link } from 'react-router-dom';
-import ProjectCardDetails from '../Cards/ProjectDetailsCard'
+import { withRouter, Route, useRouteMatch, Switch, Link, Redirect, useLocation, useHistory, useParams } from 'react-router-dom';
+import ProjectDetailsCard from '../Cards/ProjectDetailsCard'
 
 export const useStyles = makeStyles( theme => ({
     root: {
@@ -11,20 +11,18 @@ export const useStyles = makeStyles( theme => ({
     }
 }));
 
-function Project(props){
-    const handleProjectCardClick = (direction) =>{
-        props.history.push(direction);
+function ProjectsView(props){
+    const routerHistory = useHistory();
+    const currentLocation = useLocation().pathname;
+    const [projectPath, setProjectPath] = React.useState('/');
+    const [isRedirect, setIsRedirect] = React.useState(false);
+
+    const handleProjectCardClick = (projectId) =>{
+        props.setProjectIdCallback(projectId);
     }
-    const classes = useStyles();
-    let match = useRouteMatch();
-    return (
-        <Grid container
-        id = "root-grid"
-        direction = "row"
-        justify = "flex-start"
-        alignItems = "flex-start"
-        >
-            <Grid 
+
+    return (       
+        <Grid
             container
             item
             id = "projects-grid"
@@ -35,33 +33,54 @@ function Project(props){
             lg = {8}
             md = {6}
             >
-                <Switch>
-                {/* <Grid item><ProjectCard onClick = {() => {handleProjectCardClick(props.history.location.pathname + '/downhillpay'); props.setProjectName('/downhillpay')}} title = "Project Title" desc = "Short description of the project" image = "/img/ProjectsPictures/skiingphoto.jpg" technologies = {[0,1]}/></Grid> */}
-                {/* <Grid item><ProjectCard onClick = {() => {handleProjectCardClick(`${match.url}/downhillpay`); props.setProjectName('/downhillpay')}} title = "Project Title" desc = "Short description of the project" image = "/img/ProjectsPictures/skiingphoto.jpg" technologies = {[0,1]}/></Grid> */}
-                {/* <Grid item><ProjectCard onClick = {() => props.setProjectName('/downhillpay')} title = "Project Title" desc = "Short description of the project" image = "/img/ProjectsPictures/skiingphoto.jpg" technologies = {[0,1]}/></Grid> */}
-                {/* <Grid item><ProjectCard title = "Some android app" desc = "Nice app" image = "/img/ProjectsPictures/bustestphoto.jpg" technologies = {[1]}/></Grid>     */}
-                    {/* <Grid item><ProjectCard component = {Link} to="/downhillpay" title = "Some android app" desc = "Nice app" image = "/img/ProjectsPictures/bustestphoto.jpg" technologies = {[1]}/></Grid>  */}
-                </Switch>
+               <Grid item><ProjectCard onClick = {() => handleProjectCardClick(0)} title = "Downhillpay" desc = {"Some description"} technologies = {[0]} image = {"/img/ProjectsPictures/skiingphoto.jpg"}/></Grid>
+               <Grid item><ProjectCard onClick = {() => handleProjectCardClick(1)} title = "Downhillpay" desc = {"Some description"} technologies = {[1]} image = {"/img/ProjectsPictures/bustestphoto.jpg"}/></Grid>
+        </Grid>
+    )
+}
 
-            </Grid>
-            <Grid 
-            item
-            container 
-            lg= {4}
-            md = {6}
-            spacing = {1}
-            direction = "row"
-            justify = "center"
-            alignItems = "flex-start"
-            >
-                <Route path={`${match.path}`}>
-                    <Grid item><ProjectCardDetails ProjectIndex = {0}/></Grid>
-                </Route>
-                <Route path={`${match.path}/:projectName`}>
-                    <Grid item><ProjectCardDetails ProjectIndex = {0}/></Grid>
-                </Route>
+function ProjectDetails(props){
+    let match = useRouteMatch();
+    const [didMount, setDidMount] = React.useState(false);
+    const currentLocation = useLocation();
+    let {projectName} = useParams();
+    useEffect(() =>
+        {
+            setDidMount(true);
+        }
+    )
+    return(
+        <Grid 
+        item
+        container 
+        lg= {4}
+        md = {6}
+        spacing = {1}
+        direction = "row"
+        justify = "center"
+        alignItems = "flex-start"
+        >
+            <Grow in = {didMount === true}>
+                <Grid item><ProjectDetailsCard ProjectIndex = {props.projectId}/></Grid>
+            </Grow>
+        </Grid>
+    )
+}
 
-            </Grid>
+function Project(props){
+    const classes = useStyles();
+    const [projectId, setProjectId] = React.useState(0);
+    return (
+        <Grid container
+        id = "root-grid"
+        direction = "row"
+        justify = "flex-start"
+        alignItems = "flex-start"
+        >
+            <ProjectsView setProjectIdCallback = {setProjectId}/>
+            <Grow>
+                <ProjectDetails projectId = {projectId}/>
+            </Grow>          
         </Grid> 
     );
 }

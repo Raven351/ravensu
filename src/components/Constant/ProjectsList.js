@@ -10,7 +10,7 @@ const ProjectsList = [
     { 
         key: 1, 
         name: "DownhillPay",  
-        pictureSrc:  "/img/ChipsLogos/chashlogo.png",
+        pictureSrc:  "/img/ProjectsPictures/bustestphoto.jpg",
         technologiesIndexes: [0],
         desc: "Some description" 
     },

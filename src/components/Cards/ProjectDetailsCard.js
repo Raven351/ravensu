@@ -19,7 +19,7 @@ function ProjectDetailsCard({ProjectIndex}){
     const classes = useStyles();
     return (
         <Card className = {classes.root}>
-            <CardMedia className = {classes.media} image = {ProjectsList[0].pictureSrc}/>
+            <CardMedia className = {classes.media} image = {ProjectsList[ProjectIndex].pictureSrc}/>
         </Card>
     );
 }

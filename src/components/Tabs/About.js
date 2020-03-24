@@ -43,12 +43,8 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-function About({width}){
+function About(){
     const classes = useStyles();
-    const isMedium = /md/.test(width);
-    const gridProps = {
-        alignItems: isMedium ? "center" : "flex-end"
-    }
     return(
         <Grid //main container
         container
@@ -57,10 +53,10 @@ function About({width}){
         alignItems = "flex-start"
         spacing = {2}            
         >
-            <Grid container item md = {6} lg = {4} direction = "column" alignItems = "flex-end" justify = "flex-start">
+            <Grid container item md = {6} lg = {5} direction = "column" alignItems = "flex-end" justify = "flex-start">
                 <AboutCard/>
             </Grid>
-            <Grid container item md = {6} lg = {8} direction = "column" justify="flex-start" alignItems = "flex-start">
+            <Grid container item md = {6} lg = {7} direction = "column" justify="flex-start" alignItems = "flex-start">
                 <Paper style = {{padding: 25, maxWidth: 800}}>
                     <Grid item >
                         <AboutDetails/>
@@ -74,4 +70,4 @@ function About({width}){
     );
 }
 
-export default withWidth()(About)
+export default (About)

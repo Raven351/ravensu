@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route, useRouteMatch, useLocation, useH
 import {Grow, Grid} from '@material-ui/core'
 import Home from './Tabs/Home'
 import About from './Tabs/About'
+import Projects from './Tabs/Projects'
 
 function RenderRoute({children}){
     const [mount, setMount] = React.useState(false);
@@ -51,6 +52,19 @@ function RenderAbout(){
         </Grow>   
     )
 }
+function RenderProjects(){
+    const [mount, setMount] = React.useState(false);
+    useEffect(() => {
+        setMount(true);
+    })
+    return(
+        <Grow in = {mount === true}>
+            <Grid container style = {{marginTop: 100}}>
+                <Projects/>
+            </Grid>
+        </Grow>   
+    )
+}
 
 function MainContentRouter(){
     let routeMatch = useRouteMatch();
@@ -59,10 +73,15 @@ function MainContentRouter(){
     return (
         <Switch>
             <Route path exact ="/">
-                <RenderHome/>
+                <RenderRoute children = {<Home/>}/>
             </Route>
             <Route path ="/about">
-                <RenderAbout/>
+
+                    <RenderRoute children = {<About/>}/>
+                
+            </Route>
+            <Route path ="/projects">
+    <RenderRoute children = {<Projects/>}/>
             </Route>
         </Switch>
     );

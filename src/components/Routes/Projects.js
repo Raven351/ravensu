@@ -68,19 +68,27 @@ function ProjectDetails(props){
 }
 
 function Project(props){
+    let routeMatch = useRouteMatch();
     const classes = useStyles();
     const [projectId, setProjectId] = React.useState(0);
     return (
         <Grid container
         id = "root-grid"
         direction = "row"
-        justify = "flex-start"
+        justify = "center"
         alignItems = "flex-start"
+        spacing = {5}
         >
-            <ProjectsView setProjectIdCallback = {setProjectId}/>
-            <Grow>
-                <ProjectDetails projectId = {projectId}/>
-            </Grow>          
+            <Switch>
+                <Route path ={`${routeMatch.path}/downhillpay`}>
+                    <Grid item><ProjectDetailsCard ProjectIndex = {0}/></Grid>
+                </Route>
+                <Route path ={`${routeMatch.path}`}>
+                    <Grid item><ProjectCard title = "Downhillpay" desc = {"Some description"} technologies = {[0]} image = {"/img/ProjectsPictures/skiingphoto.jpg"}/></Grid>
+                    <Grid item><Link style={{textDecoration: "none"}} to={`${routeMatch.url}/downhillpay`}><ProjectCard  title = "Downhillpay" desc = {"Some description"} technologies = {[1]} image = {"/img/ProjectsPictures/bustestphoto.jpg"}/></Link></Grid>    
+                </Route>
+            </Switch>
+            
         </Grid> 
     );
 }

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import {BrowserRouter as Router, Switch, Route, useRouteMatch, useLocation, useHistory} from 'react-router-dom'
 import {Grow, Grid} from '@material-ui/core'
-import Home from './Tabs/Home'
-import About from './Tabs/About'
-import Projects from './Tabs/Projects'
+import Home from './Routes/Home'
+import About from './Routes/About'
+import Projects from './Routes/Projects'
 
 function RenderRoute({children, showAnimation}){
     const [mount, setMount] = React.useState(false);

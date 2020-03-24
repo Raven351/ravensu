@@ -9,7 +9,7 @@ import {makeStyles } from '@material-ui/core'
 import Particles from 'react-particles-js'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import TabPanel from './components/Tabs/TabPanel'
+import TabPanel from './components/Routes/TabPanel'
 import MainContentRouter from './components/MainContentRouter'
 
 const useStyles = makeStyles(theme=>({

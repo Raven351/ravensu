@@ -1,7 +1,7 @@
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import MenuTabs from './Tabs/MenuTabs'
+import MenuTabs from './Routes/MenuTabs'
 import MenuNavBar from './NavBar/MenuNavBar'
 import { makeStyles, Drawer, Box, SwipeableDrawer, List} from '@material-ui/core'
 import SocialMedia from './NavBar/SocialMedia'

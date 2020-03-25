@@ -24,16 +24,14 @@ function Projects({isReverse, projectId}){
         <Grid
             style = {{margin: 10}}
             container
-            direction = "column"
+            direction = "row"
             alignItems = "center"
-            justify = "flex-start"
+            justify = "center"
             spacing = {6}
         >
-            <Grid item><Project projectId = {0}/></Grid>
-            <Grid item><Project projectId = {1} isReverse = {true}/></Grid>
+            <Grid item lg = {11}><Project projectId = {0}/></Grid>
+            <Grid item lg = {11}><Project projectId = {1} isReverse = {true}/></Grid>
         </Grid>
-        
-        
     );
 }
 

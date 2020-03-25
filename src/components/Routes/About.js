@@ -51,7 +51,8 @@ function About(){
         direction = "row"
         justify = "flex-start"
         alignItems = "flex-start"
-        spacing = {2}            
+        spacing = {2}
+        style = {{maxWidth: "99vw"}}            
         >
             <Grid container item md = {6} lg = {5} direction = "column" alignItems = "flex-end" justify = "flex-start">
                 <AboutCard/>

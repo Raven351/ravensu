@@ -23,8 +23,9 @@ export const useStyles = makeStyles( theme => ({
         height: "auto",
     },
     paper:{
+        maxWidth: "100%",
         color: "transparent",
-        backgroundColor: "transparent"
+        //backgroundColor: "transparent"
     },
     typography:{
         [theme.breakpoints.up('md')]:{
@@ -55,15 +56,18 @@ function ProjectDescription({projectId, align}){
                 align = {align}
                 className = {classes.typography}
                 >
-                    Project Title
+                    {ProjectsList[projectId].name}
                 </Typography>
                 <Typography
                 variant = "body1"
                 paragraph = "true"
                 align = {align}
                 className = {classes.typography}
+                component = "p"
+                display = "block"
+                style ={{whiteSpace: 'pre-line'}}
                 >
-                    Some kind of description
+                    {ProjectsList[projectId].desc}
                 </Typography>
             </ThemeProvider>
 
@@ -97,28 +101,32 @@ function Project({isReverse, projectId}){
         align: isReverse? "right" : "left"
     }
     return(
-        <Grid
-        container
-        className = {classes.rootGrid}
-        {...rootGridProps}
-        alignItems = "flex-start"
-        justify = "center"
-        
-        >
-            <Grid item lg = {3} xs = {12}><img src = {ProjectsList[projectId].pictureSrc} className = {classes.img}/></Grid>
-            <Grid item lg = {5} xs = {12}><ProjectDescription projectId = {0} {...projectDescriptionProps}/></Grid>
-            <Grid item 
-            container 
-            direction = "column"
-            alignItems = "center"
-            lg = {2}
-            xs = {4}
-            spacing = {12}
-            className = {classes.techGrid}
+        //<Paper className = {classes.paper}>
+            <Grid
+            container
+            className = {classes.rootGrid}
+            {...rootGridProps}
+            alignItems = "flex-start"
+            justify = "center"
+            
             >
-                <ProjectTechnologies projectId = {0}/>
+                <Grid item lg = {5} xs = {12}><ProjectDescription projectId = {projectId} {...projectDescriptionProps}/></Grid>
+                <Grid item lg = {3} xs = {12}><img src = {ProjectsList[projectId].pictureSrc} className = {classes.img}/></Grid>               
+                <Grid item 
+                container 
+                direction = "column"
+                alignItems = "center"
+                justify = "center"
+                lg = {2}
+                xs = {4}
+                spacing = {12}
+                className = {classes.techGrid}
+                >
+                    <ProjectTechnologies projectId = {0}/>
+                </Grid>
             </Grid>
-        </Grid>
+        //</Paper>
+
     );
 }
 

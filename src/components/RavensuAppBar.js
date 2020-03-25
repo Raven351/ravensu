@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme =>({
 function AppBarNormal() {
     const classes = useStyles();
     return(
-    <AppBar position = "static" className = {classes.appBar} style={{ background: 'transparent', boxShadow: 'none'}}>
+    <AppBar position = "sticky" className = {classes.appBar} style={{ background: 'transparent', boxShadow: 'none'}}>
         <Toolbar>
             <MenuNavBar/>
         </Toolbar>            
@@ -59,7 +59,7 @@ function AppBarMobile(){
     const drawerContent = () => (
         <Box onClick = {toggleDrawer(false)} justifyContent = "center" display="flex">
             <List>
-            <MenuTabs/>
+                <MenuNavBar/>
             </List>
         </Box>
         );

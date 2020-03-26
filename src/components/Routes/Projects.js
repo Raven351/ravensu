@@ -4,6 +4,7 @@ import {Grid, Grow, Paper, SwipeableDrawer} from '@material-ui/core'
 import { ProjectCard } from '../Cards/ProjectCard';
 import { withRouter, Route, useRouteMatch, Switch, Link, Redirect, useLocation, useHistory, useParams } from 'react-router-dom';
 import ProjectDetailsCard from '../Cards/ProjectDetailsCard'
+import ProjectDetails from '../ProjectDetails'
 import Project from '../Project'
 
 export const useStyles = makeStyles( theme => ({
@@ -41,9 +42,10 @@ function Projects(){
             spacing = {6}
         >
             <Grid item lg={2}><ProjectCard projectId = {0} onClick = {() => openProjectDetailsDrawer(0)}/></Grid>
+            <Grid item lg={2}><ProjectCard projectId = {1} onClick = {() => openProjectDetailsDrawer(1)}/></Grid>
         </Grid>
         <SwipeableDrawer open = {projectDetailsDrawerState} onOpen = {toggleProjectDetailsDrawer(true)} onClose={toggleProjectDetailsDrawer(false)} anchor = "right" variant = "temporary">
-            <ProjectDetailsCard ProjectIndex={selectedProjectState}/>
+            <ProjectDetails projectId = {selectedProjectState}/>
         </SwipeableDrawer>
         </>
     );

@@ -36,7 +36,8 @@ function ShowLanguages(indexes){
 
 export function ProjectCard({projectId, onClick }) {
     const classes = useStyles();
-    return (<Card className={classes.root}>
+    return (
+    <Card className={classes.root}>
         <CardActionArea onClick = {onClick}>
             <CardMedia className={classes.media} image={ProjectsList[projectId].pictureSrc} />
             <CardContent>

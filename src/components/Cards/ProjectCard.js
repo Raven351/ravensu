@@ -1,6 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles'
 import { Grid, Card, CardActionArea, CardMedia, Typography, CardContent, Avatar, Tooltip } from '@material-ui/core';
+import ProjectsList from '../Constant/ProjectsList'
 import programmingLanguages from '../Constant/ProgrammingLanguages'
 
 const useStyles = makeStyles( theme => ({
@@ -33,18 +34,18 @@ function ShowLanguages(indexes){
     );
 }
 
-export function ProjectCard({ title, desc, technologies, image, onClick }) {
+export function ProjectCard({projectId, onClick }) {
     const classes = useStyles();
     return (<Card className={classes.root}>
         <CardActionArea onClick = {onClick}>
-            <CardMedia className={classes.media} image={image} />
+            <CardMedia className={classes.media} image={ProjectsList[projectId].pictureSrc} />
             <CardContent>
                 <Grid id="langauge-icons-grid" container direction="row" justify="flex-end" alignItems="flex-start" spacing={0}>
-                    {ShowLanguages(technologies)}
+                    {ShowLanguages(ProjectsList[projectId].technologiesIndexes)}
                 </Grid>
                 <Grid>
-                    <Typography gutterBottom variant="h5" component="h2">{title}</Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">{desc}</Typography>
+                    <Typography gutterBottom variant="h5" component="h2">{ProjectsList[projectId].name}</Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">{ProjectsList[projectId].descShort}</Typography>
                 </Grid>
             </CardContent>
         </CardActionArea>

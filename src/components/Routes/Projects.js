@@ -9,7 +9,15 @@ import Project from '../Project'
 
 export const useStyles = makeStyles( theme => ({
     root: {
+        [theme.breakpoints.up("lg")]:{
+            
+        },
+        width: "99vw"
+        
+    },
 
+    containerCard:{
+        width: 350,
     },
 
     img:{
@@ -34,15 +42,15 @@ function Projects(){
     return(
         <>
         <Grid
-            style = {{margin: 10}}
             container
+            className = {classes.root}
             direction = "row"
             alignItems = "center"
             justify = "center"
-            spacing = {6}
+            spacing = {5}
         >
-            <Grid item lg={2}><ProjectCard projectId = {0} onClick = {() => openProjectDetailsDrawer(0)}/></Grid>
-            <Grid item lg={2}><ProjectCard projectId = {1} onClick = {() => openProjectDetailsDrawer(1)}/></Grid>
+            <Grid item className = {classes.containerCard}><ProjectCard projectId = {0} onClick = {() => openProjectDetailsDrawer(0)}/></Grid>
+            <Grid item className = {classes.containerCard}><ProjectCard projectId = {1} onClick = {() => openProjectDetailsDrawer(1)}/></Grid>
         </Grid>
         <SwipeableDrawer open = {projectDetailsDrawerState} onOpen = {toggleProjectDetailsDrawer(true)} onClose={toggleProjectDetailsDrawer(false)} anchor = "right" variant = "temporary" >
             <ProjectDetails projectId = {selectedProjectState}/>

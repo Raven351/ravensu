@@ -3,9 +3,9 @@ import {Route} from 'react-router-dom'
 import './App.css';
 import Title from './components/title'
 import Welcome from './components/welcome'
-import { Grid, AppBar, Box } from '@material-ui/core';
+import { Grid, AppBar, Box, MuiThemeProvider } from '@material-ui/core';
 import RavensuAppBar from './components/RavensuAppBar'
-import {makeStyles } from '@material-ui/core'
+import {makeStyles, createMuiTheme} from '@material-ui/core'
 import Particles from 'react-particles-js'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -34,6 +34,14 @@ const useStyles = makeStyles(theme=>({
 
 function App() {
   const classes = useStyles();
+  const theme = createMuiTheme({    
+    typography:{
+            fontFamily:[
+                '"Baloo Thambi 2"', '"Fredoka One"'
+            ]
+        }
+    }
+)
   return (
     <>
     <div styles = {{zIndex: -1, position: "absolute", top: 0, left:0}} />
@@ -47,8 +55,10 @@ function App() {
         
       }}/> */}
       <div style = {{marginTop: 30}} color = "transparent" className = {classes.app}>
-        <RavensuAppBar/>
-        <MainContentRouter/>
+        <MuiThemeProvider theme = {theme}>
+          <RavensuAppBar/>
+          <MainContentRouter/>
+        </MuiThemeProvider>
       </div>
     </div>
     </>

@@ -44,7 +44,7 @@ function Projects(){
             <Grid item lg={2}><ProjectCard projectId = {0} onClick = {() => openProjectDetailsDrawer(0)}/></Grid>
             <Grid item lg={2}><ProjectCard projectId = {1} onClick = {() => openProjectDetailsDrawer(1)}/></Grid>
         </Grid>
-        <SwipeableDrawer open = {projectDetailsDrawerState} onOpen = {toggleProjectDetailsDrawer(true)} onClose={toggleProjectDetailsDrawer(false)} anchor = "right" variant = "temporary">
+        <SwipeableDrawer open = {projectDetailsDrawerState} onOpen = {toggleProjectDetailsDrawer(true)} onClose={toggleProjectDetailsDrawer(false)} anchor = "right" variant = "temporary" >
             <ProjectDetails projectId = {selectedProjectState}/>
         </SwipeableDrawer>
         </>

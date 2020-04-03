@@ -10,14 +10,14 @@ function RenderRoute({children, showAnimation}){
     const RenderContent = () =>{
         if (showAnimation === false){
             return (
-                <Grid container style = {{marginTop: 100}}>
+                <Grid container>
                     {children}
                 </Grid>
             )
         }
         return (
             <Grow in = {mount === true}>
-                <Grid container style = {{marginTop: 100}}>
+                <Grid container>
                     {children}
                 </Grid>
             </Grow>

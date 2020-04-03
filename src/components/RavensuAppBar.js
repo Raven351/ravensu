@@ -8,6 +8,7 @@ import SocialMedia from './NavBar/SocialMedia'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import withWidth, {isWidthUp} from '@material-ui/core/withWidth'
+import MenuNavBarMobile from './NavBar/MenuNavBarMobile'
 
 const useStyles = makeStyles(theme =>({
     appBar : {
@@ -39,55 +40,10 @@ function AppBarNormal() {
     );
 }
 
-function AppBarMobile(){
-    const classes = useStyles();
-    const [newTabValue, setNewTabValue] = React.useState(0);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [drawerState, setDrawerState] = React.useState(false);
-    const handleMenuClick = event => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleMenuClose = (newTabValue) =>{
-
-        setAnchorEl(null);
-    }
-    const toggleDrawer = (open) => event => {
-        if (event.type === 'keydown' && (event.key==='Tab' || event.key === 'Shift')) return;
-        setDrawerState(open)
-    }
-
-    const drawerContent = () => (
-        <Box onClick = {toggleDrawer(false)} justifyContent = "center" display="flex">
-            <List>
-                <MenuNavBar/>
-            </List>
-        </Box>
-        );
-
-    return(
-        <div>
-            <AppBar position = "static" className = {classes.appBar} style={{ background: 'transparent', boxShadow: 'none'}} >
-                <Toolbar>
-                    <IconButton
-                        edge = "start"
-                        aria-control = "menu"
-                        onClick = {toggleDrawer(true)}
-                    >
-                        <MenuIcon style = {{color: "#ffffff"}}/>
-                    </IconButton>
-                </Toolbar>
-            </AppBar>
-            <SwipeableDrawer open = {drawerState} onOpen={toggleDrawer(true)} onClose={toggleDrawer(false)} anchor = "top" variant = "temporary" >
-                {drawerContent()}
-            </SwipeableDrawer>
-        </div>
-    );
-}
-
 function RavensuAppBar(props){
     const [tabValue, setTabValue] = React.useState(0);
     if(isWidthUp('md', props.width)) return <AppBarNormal/>;
-    else return <AppBarMobile/> 
+    else return <MenuNavBarMobile/>;
 }
 
 export default withWidth()(RavensuAppBar)

@@ -12,6 +12,12 @@ import AboutTechs from '../Cards/AboutTechs';
 import withWidth from '@material-ui/core/withWidth'
 
 const useStyles = makeStyles(theme => ({
+    rootContainer:{
+        width: "100vw",
+        marginTop: "80px",
+        
+    },
+
     paper: {
         padding: 20,
         color: "#000000",
@@ -20,9 +26,16 @@ const useStyles = makeStyles(theme => ({
         boxShadow: 10,
     },
 
-    card: {
-        maxWidth: 350,
-        minWidth: 400
+    aboutCardRoot: {
+        // [theme.breakpoints.up('lg')]:{
+        //     maxWidth: 350,
+        //     minWidth: 400,
+        // },
+        maxWidth: 400,
+        margin: "20px",
+        [theme.breakpoints.up("xs")]:{
+            maxWidth: 400
+        },
     },
 
     avatar:{
@@ -49,15 +62,14 @@ function About(){
         <Grid //main container
         container
         direction = "row"
-        justify = "flex-start"
+        justify = "center"
         alignItems = "flex-start"
-        spacing = {2}
-        style = {{maxWidth: "99vw"}}            
+        className = {classes.rootContainer}           
         >
-            <Grid container item md = {6} lg = {5} direction = "column" alignItems = "flex-end" justify = "flex-start">
-                <AboutCard/>
+            <Grid item xs = {12} sm = {12} md = {6} lg = {7}  className = {classes.aboutCardRoot} >
+                <AboutCard/>            
             </Grid>
-            <Grid container item md = {6} lg = {7} direction = "column" justify="flex-start" alignItems = "flex-start">
+            <Grid container item xs = {12} sm = {12} md = {6} lg = {5} direction = "column" justify="flex-start" alignItems = "flex-start" style = {{margin: "20px"}}>
                 <Paper style = {{padding: 25, maxWidth: 800}}>
                     <Grid item >
                         <AboutDetails/>

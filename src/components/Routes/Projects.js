@@ -9,8 +9,9 @@ import Project from '../Project'
 
 export const useStyles = makeStyles( theme => ({
     root: {
-        [theme.breakpoints.up("lg")]:{
-            
+        marginTop: "100px",
+        [theme.breakpoints.down("sm")]:{
+            width: "100vw"
         },
         width: "99vw"
         
@@ -18,6 +19,9 @@ export const useStyles = makeStyles( theme => ({
 
     containerCard:{
         width: 350,
+        [theme.breakpoints.down("sm")]:{
+            marginLeft: "40px",
+        },
     },
 
     img:{

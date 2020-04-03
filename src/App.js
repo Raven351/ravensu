@@ -54,7 +54,7 @@ function App() {
         }
         
       }}/> */}
-      <div style = {{marginTop: 30}} color = "transparent" className = {classes.app}>
+      <div color = "transparent" className = {classes.app}>
         <MuiThemeProvider theme = {theme}>
           <RavensuAppBar/>
           <MainContentRouter/>

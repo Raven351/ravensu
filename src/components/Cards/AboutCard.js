@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     },
 
     card: {
-        minWidth: 400,
         //backgroundColor: "transparent"
     },
 

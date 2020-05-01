@@ -10,7 +10,7 @@ const useStyles = makeStyles( theme => ({
     },
     media: {
         width: "auto",
-        height: 200,
+        height: 250,
         display: "block",
         marginLeft: "auto",
         marginRight: "auto",

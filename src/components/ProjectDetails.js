@@ -57,7 +57,7 @@ function Title({projectId}){
         <Typography
         variant = "h4"
         component = "h1"
-        align = "center"
+        align = "left"
         >
             {ProjectsList[projectId].name}
         </Typography>
@@ -70,7 +70,7 @@ function Description({projectId}){
         <Typography
         variant = "body1"
         component = "p"
-        align = "center"
+        align = "left"
         style = {{fontFamily: "Baloo Thambi 2"}}
         gutterBottom>
             {ProjectsList[projectId].desc}
@@ -103,7 +103,7 @@ function ProjectDetails({projectId}){
             <Box className = {classes.textContainer}>
                 <Title projectId = {projectId}/> 
             </Box>
-            <Box className = {classes.textContainer} textAlign = "center">
+            <Box className = {classes.textContainer} textAlign = "left">
                 <Link align = "right" gutterBottom target = "_blank" href = {ProjectsList[projectId].github}>{ProjectsList[projectId].github}</Link>
             </Box>
             <Box className = {classes.textContainer}>

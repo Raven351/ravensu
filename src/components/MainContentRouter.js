@@ -4,6 +4,7 @@ import {Grow, Grid} from '@material-ui/core'
 import Home from './Routes/Home'
 import About from './Routes/About'
 import Projects from './Routes/Projects'
+import Contact from './Routes/Contact'
 
 function RenderRoute({children, showAnimation}){
     const [mount, setMount] = React.useState(false);
@@ -90,6 +91,9 @@ function MainContentRouter(){
             </Route> */}
             <Route path ="/projects">
                 <RenderRoute children = {<Projects/>}/>
+            </Route>
+            <Route path = "/contact">
+                <RenderRoute children = {<Contact/>}/>
             </Route>
         </Switch>
     );

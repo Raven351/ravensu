@@ -37,6 +37,7 @@ app.get('/', (req,res) => {
 })
 
 app.post('/send', (req, res, next)=>{
+    console.log('/send POST request');
     var name = req.body.name;
     var email = req.body.email;
     var subject = req.body.subject;

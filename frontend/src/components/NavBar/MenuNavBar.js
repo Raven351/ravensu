@@ -40,7 +40,6 @@ function MenuNavBar(props){
         if (path === '/') return 0;
         if (path === '/about') return 1;
         if (path === '/projects') return 2;
-        if (path === '/hobbies') return 3;
         if (path === '/contact') return 4;
         else return 0;
     }
@@ -54,7 +53,6 @@ function MenuNavBar(props){
                 <Tab component={Link} to="/" label = "Home" disableTouchRipple = "true" value={0}/>
                 <Tab component = {Link} label = "About" to = {{pathname: "/about", state: {about: true}}} disableTouchRipple = "true" value = {1}/>
                 <Tab component = {Link} label = "Sample projects" to = "/projects" disableTouchRipple = "true" value = {2}/>
-                <Tab component = {Link} label = "Hobbies" to = "/hobbies" disableTouchRipple = "true" value = {3}/>
                 <Tab component = {Link} label = "Contact" to = "/contact" disableTouchRipple = "true" value = {4}/> 
             </Tabs>
             <SocialMedia style ={{flexGrow: 1}}/>

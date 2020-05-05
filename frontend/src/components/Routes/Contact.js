@@ -1,20 +1,40 @@
 import React from 'react'
+import axios from 'axios'
 import {makeStyles} from '@material-ui/core/styles'
-import {Container, TextField, createMuiTheme, ThemeProvider, Button, Dialog, DialogTitle, CircularProgress, withStyles, Avatar} from '@material-ui/core'
+import {Container, TextField, createMuiTheme, ThemeProvider, Button, Dialog, DialogTitle, CircularProgress, withStyles, Avatar, DialogContent, DialogContentText, DialogActions, Grid} from '@material-ui/core'
 import SendIcon from '@material-ui/icons/Send';
 import CheckIcon from '@material-ui/icons/Check';
-import CancelIcon from '@material-ui/icons/Cancel';
+import ClearIcon from '@material-ui/icons/Clear';
 import {blue} from '@material-ui/core/colors'
 
 const useStyles = makeStyles (theme => ({
-    textField: {
-        backgroundColor: "rgba(255,255,255,0.9)",
-        borderRadius: 4,
+    textfieldRoot: {
+        width: "100%",
+        padding: 10,
+        marginBottom: 10,
         
+    },
+    textField: {
+        backgroundColor: "rgba(255,255,255,1)",
+        borderRadius: 4,
+        width: "100%",
+        
+    },
+    textFieldMessage:{
+        width: "100%"
     },
     emailSendingDialogRoot:{
         margin: 20
     },
+    button:{
+        width: 300,
+        height: 70,
+        backgroundColor: "#2fa33f",
+        color: "#ffffff",
+        '&:hover':{
+            backgroundColor: "#44e35a"
+        }
+    }
 }));
 
 const textFieldTheme = createMuiTheme({
@@ -29,28 +49,41 @@ const ColoredCircularProgress = withStyles({
     }
 })(CircularProgress);
 
+
 function EmailSendingDialog(props){
     const classes = useStyles();
     const {isOpen, onClose, showSendingEmailProgress, showEmailSendSuccedIcon, showEmailSendFailIcon} = props;
     return(
         <div className = {classes.emailSendingDialogRoot}>
-            <Dialog open = {isOpen} PaperProps = {{style: {backgroundColor: "transparent", boxShadow: "none", padding: 50}}}>
+            <Dialog open = {isOpen} onClose = {onClose} PaperProps = {{style: {backgroundColor: "transparent", boxShadow: "none", padding: 50}}}>
                 {showSendingEmailProgress && <ColoredCircularProgress size = {100} />}
                 {showEmailSendSuccedIcon && <Avatar style = {{height: 100, width: 100, backgroundColor: "#59e387"}}><CheckIcon style = {{fontSize: "48px"}} /></Avatar>}
-                {showEmailSendFailIcon && <Avatar style = {{height: 100, width: 100, backgroundColor: "#59e387"}}><CancelIcon style = {{fontSize: "48px"}} /></Avatar>}
+                {showEmailSendFailIcon && <Avatar style = {{height: 100, width: 100, backgroundColor: "#eb6c6c"}}><ClearIcon style = {{fontSize: "48px"}} /></Avatar>}
             </Dialog>
         </div>
 
     );
 }
 
-function EmailSentStatusDialog(props){
+function EmailSentErrorDialog(props){
     const classes = useStyles();
-    const {isOpen, onClose, dialogMessage} = props;
+    const {isOpen, onClose, errorCode, errorMessage, errorStack} = props;
+    //let errorDialogContent = `Error Code: ${errorCode}\n${errorMessage}\n\n${errorStack}\nPlease let me know about this error at email@email.com\nAttach screenshot of this error message if possible.`
+    let errorDialogContent = `Please let me know about this error at email@email.com`
     return(
         <div>
-            <Dialog>
-                <DialogTitle>{"Error"}</DialogTitle>
+            <Dialog open = {isOpen} onClose = {onClose}>
+                <DialogTitle>{"Error occured while trying to send a message"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        {errorDialogContent}
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick = {onClose} style = {{backgroundColor: "#366abf", color: "#ffffff"}}>
+                        OK
+                    </Button>
+                </DialogActions>
             </Dialog>
         </div>
     )
@@ -68,7 +101,7 @@ function Contact(props){
     const [showSendingEmailProgress, setShowSendingEmailProgress] = React.useState(false);
     const [showEmailSendSuccedIcon, setShowEmailSendSuccedIcon] = React.useState(false);
     const [showEmailSendFailIcon, setShowEmailSendFailIcon] = React.useState(false);
-    const [emailSentStatusDialog, setEmailSentStatusDialog] = React.useState(false);
+    const [isEmailSentErrorDialogOpen, setIsEmailSentErrorDialogOpen] = React.useState(false);
     React.useEffect(() => {
         return () => {
           clearTimeout(emailSendingNotificationTimer.current);
@@ -80,6 +113,9 @@ function Contact(props){
         subject: subject,
         message: message
     }
+    let errorCode = "";
+    let errorMessage = "";
+    let errorStack = "";
     const resetForm = () =>{
         setName('');
         setEmail('');
@@ -99,26 +135,27 @@ function Contact(props){
         setMessage(e.target.value);
     }
     const handleEmailSendingDialogClose = () =>{
-        setEmailSendingDialogOpen(false);
+        if (showEmailSendSuccedIcon || showEmailSendFailIcon){
+            setEmailSendingDialogOpen(false);
+            clearTimeout(emailSendingNotificationTimer.current);
+            setShowEmailSendSuccedIcon(false);
+            setShowEmailSendFailIcon(false);
+        }
+        if (showEmailSendFailIcon){
+            setIsEmailSentErrorDialogOpen(true);
+        }
     }
+    const handleEmailSentErrorDialogClose = () =>{
+        setIsEmailSentErrorDialogOpen(false);
+    }
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         setEmailSendingDialogOpen(true);
         setShowSendingEmailProgress(true);
-        fetchEmailTimoutTimer.current = setTimeout(() => {
-            
-        }, 10000);
-        fetch('http://localhost:8001/send',{
-            method: "POST",
-            body: JSON.stringify(mailData),
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        }).then(
-            response => (response.json())
-        ).then((response) =>{
-            if (response.status === 'success'){
+        axios.post("http://192.168.1.13:8001/send", mailData, {timeout: 10000, headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}})
+        .then((response) =>{
+            if (response.data.status === 'success'){
                 setShowSendingEmailProgress(false);
                 setShowEmailSendSuccedIcon(true);
                 emailSendingNotificationTimer.current = setTimeout(()=>{
@@ -127,46 +164,100 @@ function Contact(props){
                 }, 2000);
                 //resetForm();
             }
-            else if(response.status === 'fail'){
+            else if(response.data.status === 'fail'){
                 setShowSendingEmailProgress(false);
                 setShowEmailSendFailIcon(true);
                 emailSendingNotificationTimer.current = setTimeout(()=>{
                     setShowEmailSendFailIcon(false);
                     setEmailSendingDialogOpen(false);
-                }, 1000);
-                //details dialog
+                    setIsEmailSentErrorDialogOpen(true);
+                }, 2000);
             }
         })
+        .catch(err => {
+                setShowSendingEmailProgress(false);
+                setShowEmailSendFailIcon(true);
+                emailSendingNotificationTimer.current = setTimeout(()=>{
+                    setShowEmailSendFailIcon(false);
+                    setEmailSendingDialogOpen(false);
+                    setIsEmailSentErrorDialogOpen(true);
+                }, 2000);
+            errorCode = err.code;
+            errorMessage = err.message;
+            errorStack = err.stack;
+        });
     }
 
     return(
         <>
-        <form onSubmit = {handleSubmit.bind(this)}>
-            <Container>
-                <ThemeProvider theme = {textFieldTheme}>
-                    <TextField required label = "Name" variant = "filled" classes = {{root: classes.textField}} value = {name} onChange = {onNameChange.bind(this)}/>
-                    <TextField required label = "Email" variant = "filled" helperText = "Email address to respond to" classes = {{root: classes.textField}} value = {email} onChange = {onEmailChange.bind(this)}/>
-                    <TextField required label = "Subject" variant = "filled" classes = {{root: classes.textField}} value = {subject} onChange = {onSubjectChange.bind(this)}/>
-                    <TextField required label = "Message" variant = "filled" classes = {{root: classes.textField}} multiline rows = {10} value = {message} onChange = {onMessageChange.bind(this)}/>
-                </ThemeProvider>
-                <Button
-                type = "submit"
-                variant="contained"
-                color="default"
-                size = "large"
-                className={classes.button}
-                endIcon={<SendIcon/>}
+        <ThemeProvider theme = {textFieldTheme}>
+        <Container maxWidth = "xl" style = {{height: 500}}>
+            <form onSubmit = {handleSubmit.bind(this)}>
+                <Grid 
+                container
+                direction = "row"
+                justify = "center"
+                alignItems = "flex-start"
+                style = {{height: "100%", marginTop: 50}}
                 >
-                    Send
-                </Button>
-            </Container>
-        </form>
+                    <Grid item md = {2}/>
+                    <Grid
+                    container
+                    item
+                    direction = "column"
+                    justify = "flex-start"
+                    alignItems = "flex-start"
+                    style = {{height: "200"}}
+                    md = {4}
+                    >           
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Subject" variant = "filled" classes = {{root: classes.textField}} value = {subject} onChange = {onSubjectChange.bind(this)}/></Grid>
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Name" variant = "filled" classes = {{root: classes.textField}} value = {name} onChange = {onNameChange.bind(this)}/></Grid>
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Email" variant = "filled" classes = {{root: classes.textField}} value = {email} onChange = {onEmailChange.bind(this)}/></Grid>
+                    </Grid>
+                    <Grid
+                    container
+                    item
+                    size
+                    direction = "column"
+                    justify = "flex-start"
+                    alignItems = "center"
+                    md = {4}
+                    >
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Message" variant = "filled" classes = {{root: classes.textField}} multiline rows = {20} value = {message} onChange = {onMessageChange.bind(this)}/></Grid>
+                    </Grid>
+                    <Grid item md = {2}/>
+                </Grid>
+                <Grid container justify = "center" style = {{marginTop: 30}}>
+                    <Grid item style = {{marginBottom: 30}}>
+                        <Button
+                            type = "submit"
+                            variant="contained"
+                            color="default"
+                            size = "large"
+                            className={classes.button}
+                            endIcon={<SendIcon/>}
+                            >
+                                Send
+                        </Button>
+                    </Grid>
+                </Grid>
+
+            </form>
+        </Container>
+        </ThemeProvider>
         <EmailSendingDialog 
         isOpen = {isEmailSendingDialogOpen} 
         onClose = {handleEmailSendingDialogClose}
         showSendingEmailProgress = {showSendingEmailProgress}
         showEmailSendSuccedIcon = {showEmailSendSuccedIcon}
         showEmailSendFailIcon = {showEmailSendFailIcon}
+        />
+        <EmailSentErrorDialog
+        isOpen = {isEmailSentErrorDialogOpen}
+        onClose = {handleEmailSentErrorDialogClose}
+        errorCode = {errorCode}
+        errorMessage = {errorMessage}
+        errorStack = {errorStack}
         />
         </>
     );

@@ -45,10 +45,10 @@ function DrawerContent(props){
                     <ListItemIcon><AccountBalanceWalletIcon/></ListItemIcon>
                     <ListItemText primary = 'Projects'/>
                 </ListItem>
-                <ListItem button component = {Link} to = '/hobbies' onClick = {props.itemOnClickCallback} >
+                {/* <ListItem button component = {Link} to = '/hobbies' onClick = {props.itemOnClickCallback} >
                     <ListItemIcon><WeekendIcon/></ListItemIcon>
                     <ListItemText primary = 'Hobbies'/>
-                </ListItem>
+                </ListItem> */}
                 <ListItem button component = {Link} to = '/contact' onClick = {props.itemOnClickCallback} >
                     <ListItemIcon><MailIcon/></ListItemIcon>
                     <ListItemText primary = 'Contact'/>

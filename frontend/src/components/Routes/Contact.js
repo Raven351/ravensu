@@ -1,13 +1,23 @@
 import React from 'react'
 import axios from 'axios'
 import {makeStyles} from '@material-ui/core/styles'
-import {Container, TextField, createMuiTheme, ThemeProvider, Button, Dialog, DialogTitle, CircularProgress, withStyles, Avatar, DialogContent, DialogContentText, DialogActions, Grid} from '@material-ui/core'
+import {Container, TextField, createMuiTheme, ThemeProvider, Button, Dialog, DialogTitle, CircularProgress, withStyles, Avatar, DialogContent, DialogContentText, DialogActions, Grid, Typography} from '@material-ui/core'
 import SendIcon from '@material-ui/icons/Send';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
 import {blue} from '@material-ui/core/colors'
 
 const useStyles = makeStyles (theme => ({
+    root: {
+        [theme.breakpoints.down('sm')]:{
+            marginTop: 60,
+        },
+        [theme.breakpoints.up('md')]:{
+            marginTop: 50,
+        },
+        height: 500,
+
+    },
     textfieldRoot: {
         width: "100%",
         padding: 10,
@@ -190,9 +200,17 @@ function Contact(props){
 
     return(
         <>
-        <ThemeProvider theme = {textFieldTheme}>
-        <Container maxWidth = "xl" style = {{height: 500}}>
+        <Container maxWidth = "xl" className = {classes.root}>
+            <Typography
+            variant = "h4"
+            component = "h1"
+            align = "center"
+            style = {{color: "#ffffff", fontFamily: "Baloo Thambi 2"}}
+            >
+                Contact
+            </Typography>
             <form onSubmit = {handleSubmit.bind(this)}>
+            <ThemeProvider theme = {textFieldTheme}>
                 <Grid 
                 container
                 direction = "row"
@@ -227,6 +245,7 @@ function Contact(props){
                     </Grid>
                     <Grid item md = {2}/>
                 </Grid>
+            </ThemeProvider>
                 <Grid container justify = "center" style = {{marginTop: 30}}>
                     <Grid item style = {{marginBottom: 30}}>
                         <Button
@@ -244,7 +263,6 @@ function Contact(props){
 
             </form>
         </Container>
-        </ThemeProvider>
         <EmailSendingDialog 
         isOpen = {isEmailSendingDialogOpen} 
         onClose = {handleEmailSendingDialogClose}

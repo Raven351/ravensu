@@ -28,7 +28,7 @@ function ShowLanguages(indexes){
             return (
                 <Tooltip placement="top" title={currentLang.name}>
                     <Grid item >
-                        <Avatar src={currentLang.pictureSrc} style={{ height: 23, width: 23}} />
+                        <Avatar variant = "square" src={currentLang.pictureSrc} style={{ height: 23, width: 23, backgroundPositionX: "50%", backgroundPositionY: "50%", backgroundRepeat: "no-repeat", backgroundSize: "cover" }} imgProps = {{style: {}}} />
                     </Grid>
                 </Tooltip>
             );

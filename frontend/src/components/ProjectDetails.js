@@ -85,7 +85,7 @@ function Technologies({projectId}){
         <>
             {ProjectsList[projectId].technologiesIndexes.map((currentValue)=> {
                     return(
-                        <Grid item lg  = {2} xs = {2}>
+                        <Grid item lg  = {3} xs = {4} style = {{padding: 30}}>
                             <img src = {TechnologiesList[currentValue].pictureSrc} className = {classes.techImg}/>
                         </Grid>
                     )

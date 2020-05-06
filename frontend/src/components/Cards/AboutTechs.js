@@ -37,9 +37,7 @@ function TechChips(props) {
 function TechChip(props){
     return(
         <>
-            <Tooltip placement = "top" title = {starLevel(props.lvl)}>
-                <Chip key={props.key} label={props.name} avatar={<Avatar alt="picture" src={props.pictureSrc}/>} />
-            </Tooltip>
+            <Chip key={props.key} label={props.name} avatar={<Avatar alt="picture" src={props.pictureSrc}/>} />
         </>
     );
 }

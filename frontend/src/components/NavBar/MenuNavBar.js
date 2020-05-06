@@ -55,7 +55,10 @@ function MenuNavBar(props){
                 <Tab component = {Link} label = "Sample projects" to = "/projects" disableTouchRipple = "true" value = {2}/>
                 <Tab component = {Link} label = "Contact" to = "/contact" disableTouchRipple = "true" value = {4}/> 
             </Tabs>
-            <SocialMedia style ={{flexGrow: 1}}/>
+            <span style = {{marginTop: 10}}>
+                <SocialMedia style ={{flexGrow: 1}}/>
+            </span>
+
         </div>
     );
 }

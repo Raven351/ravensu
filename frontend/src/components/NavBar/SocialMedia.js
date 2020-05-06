@@ -2,7 +2,7 @@ import React from 'react'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import {makeStyles} from '@material-ui/core'
+import {makeStyles, Link} from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     socialMediaDiv : {
@@ -11,7 +11,8 @@ const useStyles = makeStyles(theme => ({
     },
 
     socialMediaIcon : {
-        marginRight: theme.spacing(2)
+        marginRight: theme.spacing(1.8),
+        marginLeft: theme.spacing(1.8)
     }
 
 }));
@@ -20,10 +21,16 @@ const useStyles = makeStyles(theme => ({
 function SocialMedia(props){
     const classes = useStyles();
     return(
-        <div className = {classes.socialMediaDiv}>        
-            <InstagramIcon className = {classes.socialMediaIcon}/>
-            <LinkedInIcon className = {classes.socialMediaIcon}/>
-            <GitHubIcon className = {classes.socialMediaIcon}/>
+        <div className = {classes.socialMediaDiv}> 
+            <Link target = "_blank" href = "https://www.instagram.com/raven.brt" style = {{textDecoration: "none", color: "#ffffff"}} color = "textSecondary">
+                <InstagramIcon className = {classes.socialMediaIcon}/>
+            </Link>       
+            <Link target = "_blank" href = "https://www.linkedin.com/in/bartosz-baum-1aa12419a/" style = {{textDecoration: "none", color: "#ffffff"}} color = "textSecondary">
+                <LinkedInIcon className = {classes.socialMediaIcon}/>
+            </Link>       
+            <Link target = "_blank" href = "https://github.com/Raven351" style = {{textDecoration: "none", color: "#ffffff"}} color = "textSecondary">
+                <GitHubIcon className = {classes.socialMediaIcon}/>
+            </Link>       
         </div>
 
     )

@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import TabPanel from './components/Routes/TabPanel'
 import MainContentRouter from './components/MainContentRouter'
+import {LanguageProvider} from './lang/LangaugeContext'
 
 const useStyles = makeStyles(theme=>({
   app:{
@@ -55,10 +56,12 @@ function App() {
         
       }}/> */}
       <div color = "transparent" className = {classes.app}>
-        <MuiThemeProvider theme = {theme}>
-          <RavensuAppBar/>
-          <MainContentRouter/>
-        </MuiThemeProvider>
+        <LanguageProvider>
+          <MuiThemeProvider theme = {theme}>
+            <RavensuAppBar/>
+            <MainContentRouter/>
+          </MuiThemeProvider>
+        </LanguageProvider>
       </div>
     </div>
     </>

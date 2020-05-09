@@ -3,6 +3,7 @@ import {BrowserRouter as Router, withRouter, Link} from 'react-router-dom'
 import {makeStyles} from '@material-ui/core/styles'
 import {Tabs, Tab} from '@material-ui/core'
 import SocialMedia from './SocialMedia'
+import TextLang from '../TextLang'
 
 
 const useStyles = makeStyles(theme => ({
@@ -50,10 +51,10 @@ function MenuNavBar(props){
     return (
         <div className = {classes.appBar}>
             <Tabs style ={{flexGrow: 1}} value = {tabValue} onChange = {handleTabChange} classes = {{indicator: classes.tabsIndicator} }>
-                <Tab component={Link} to="/" label = "Home" disableTouchRipple = "true" value={0}/>
-                <Tab component = {Link} label = "About" to = {{pathname: "/about", state: {about: true}}} disableTouchRipple = "true" value = {1}/>
-                <Tab component = {Link} label = "Sample projects" to = "/projects" disableTouchRipple = "true" value = {2}/>
-                <Tab component = {Link} label = "Contact" to = "/contact" disableTouchRipple = "true" value = {4}/> 
+                <Tab component={Link} to="/" label = {<TextLang textId = "navHome"/>} disableTouchRipple = "true" value={0}/>
+                <Tab component = {Link} label = {<TextLang textId = "navAbout"/>} to = {{pathname: "/about", state: {about: true}}} disableTouchRipple = "true" value = {1}/>
+                <Tab component = {Link} label = {<TextLang textId = "navProjects"/>} to = "/projects" disableTouchRipple = "true" value = {2}/>
+                <Tab component = {Link} label = {<TextLang textId = "navContact"/>} to = "/contact" disableTouchRipple = "true" value = {4}/> 
             </Tabs>
             <span style = {{marginTop: 10}}>
                 <SocialMedia style ={{flexGrow: 1}}/>

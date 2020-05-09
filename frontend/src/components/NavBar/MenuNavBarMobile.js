@@ -9,6 +9,7 @@ import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import WeekendIcon from '@material-ui/icons/Weekend';
 import MailIcon from '@material-ui/icons/Mail';
 import SocialMedia from './SocialMedia'
+import TextLang from '../TextLang'
 
 const useStyles = makeStyles(theme => ({
     appBarDiv: {
@@ -35,15 +36,15 @@ function DrawerContent(props){
                 <Divider/>
                 <ListItem button component = {Link} to = '/' onClick = {props.itemOnClickCallback}>
                     <ListItemIcon><HomeIcon/></ListItemIcon>
-                    <ListItemText primary = 'Home'/>
+                    <ListItemText primary = {<TextLang textId = "navHome"/>}/>
                 </ListItem>
                 <ListItem button component = {Link} to = '/about' onClick = {props.itemOnClickCallback} >
                     <ListItemIcon><InfoIcon/></ListItemIcon>
-                    <ListItemText primary = 'About'/>
+                    <ListItemText primary = {<TextLang textId = "navAbout"/>}/>
                 </ListItem>
                 <ListItem button component = {Link} to = '/projects' onClick = {props.itemOnClickCallback} >
                     <ListItemIcon><AccountBalanceWalletIcon/></ListItemIcon>
-                    <ListItemText primary = 'Projects'/>
+                    <ListItemText primary = {<TextLang textId = "navProjects"/>}/>
                 </ListItem>
                 {/* <ListItem button component = {Link} to = '/hobbies' onClick = {props.itemOnClickCallback} >
                     <ListItemIcon><WeekendIcon/></ListItemIcon>
@@ -51,7 +52,7 @@ function DrawerContent(props){
                 </ListItem> */}
                 <ListItem button component = {Link} to = '/contact' onClick = {props.itemOnClickCallback} >
                     <ListItemIcon><MailIcon/></ListItemIcon>
-                    <ListItemText primary = 'Contact'/>
+                    <ListItemText primary = {<TextLang textId = "navContact"/>}/>
                 </ListItem>
             </List>
         </div>

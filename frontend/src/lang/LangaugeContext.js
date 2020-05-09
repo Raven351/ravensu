@@ -1,10 +1,10 @@
-import {langaugeOptions, dictionaryList} from './Dictionary'
+import {languageOptions, dictionaryList} from './Dictionary'
 import React from 'react'
 import { createContext, useContext, useState } from 'react'
 
 export const LangaugeContext = createContext({
-    language: langaugeOptions[0],
-    dictionary: dictionaryList[langaugeOptions[0].id]
+    language: languageOptions[0],
+    dictionary: dictionaryList[languageOptions[0].id]
 });
 
 export function LanguageProvider(props){

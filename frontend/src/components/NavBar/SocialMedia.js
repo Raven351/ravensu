@@ -2,7 +2,7 @@ import React from 'react'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import {makeStyles, Link} from '@material-ui/core'
+import {makeStyles, Link, Button} from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     socialMediaDiv : {

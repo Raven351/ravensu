@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core/styles'
 import {Tabs, Tab} from '@material-ui/core'
 import SocialMedia from './SocialMedia'
 import TextLang from '../TextLang'
+import LangaugeSelector from './LanguageSelector'
 
 
 const useStyles = makeStyles(theme => ({
@@ -59,6 +60,10 @@ function MenuNavBar(props){
             <span style = {{marginTop: 10}}>
                 <SocialMedia style ={{flexGrow: 1}}/>
             </span>
+            <span style = {{marginTop:4, marginLeft: 10}}>
+                <LangaugeSelector/>
+            </span>
+            
 
         </div>
     );

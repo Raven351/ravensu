@@ -10,6 +10,7 @@ import WeekendIcon from '@material-ui/icons/Weekend';
 import MailIcon from '@material-ui/icons/Mail';
 import SocialMedia from './SocialMedia'
 import TextLang from '../TextLang'
+import LangaugeSelector from './LanguageSelector';
 
 const useStyles = makeStyles(theme => ({
     appBarDiv: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
         background: "#1178c2"
     },
     drawerContent: {
-        width: "45vw",
+        width: "50vw",
     }
 }));
 
@@ -78,8 +79,10 @@ function MenuNavBarMobile(props){
                     >
                         <MenuIcon /> 
                     </IconButton>
+                    <LangaugeSelector/> 
                     <span style = {{flexGrow: 5}}/>
                     <SocialMedia/>
+                    
                 </Toolbar>
             </AppBar>
         </div>

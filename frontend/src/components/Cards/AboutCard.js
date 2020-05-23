@@ -7,6 +7,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import SchoolIcon from '@material-ui/icons/School';
 import SmsIcon from '@material-ui/icons/Sms';
 import WorkIcon from '@material-ui/icons/Work';
+import TextLang from '../TextLang'
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -110,7 +111,7 @@ export default function AboutCard(){
                             align = "center"
                             style ={{color: "#000000"}}                    
                             >
-                            Gdańsk, Poland
+                                <TextLang textId = "aboutPlace"/>
                             </Typography>
                         </Grid>
                     </CardContentGridDescriptionElement>
@@ -121,10 +122,10 @@ export default function AboutCard(){
                         <Grid item >
                             <Typography
                             variant = "body1"
-                            align = "center"                     
+                            align = "center"
+                            style = {{whiteSpace: "pre-line"}}                     
                             >
-                                Freelancer<br/>
-                                Available for hire
+                                <TextLang textId = "aboutJob"/>
                             </Typography>
                         </Grid>
                     </CardContentGridDescriptionElement>
@@ -135,9 +136,10 @@ export default function AboutCard(){
                         <Grid item>
                             <Typography
                             variant = "body1"
-                            align = "center"                     
+                            align = "center"   
+                            style = {{whiteSpace: "pre-line"}}                  
                             >
-                            IT Engineer Degree<br/>
+                            <TextLang textId = "aboutEdu"/>
                             </Typography>
                         </Grid>
                     </CardContentGridDescriptionElement>
@@ -148,12 +150,10 @@ export default function AboutCard(){
                         <Grid item >
                             <Typography
                             variant = "body1"
-                            align = "center"                     
+                            align = "center"
+                            style = {{whiteSpace: "pre-line"}}                     
                             >
-                                Polish - Native<br/>
-                                English - Advanced (C1)<br/>
-                                Japanese - Basic (N4)<br/>
-
+                                <TextLang textId = "aboutLang"/>
                             </Typography>
                         </Grid>
                     </CardContentGridDescriptionElement>

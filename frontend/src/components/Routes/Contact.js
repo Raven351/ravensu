@@ -6,6 +6,7 @@ import SendIcon from '@material-ui/icons/Send';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
 import {blue} from '@material-ui/core/colors'
+import TextLang from '../TextLang'
 
 const useStyles = makeStyles (theme => ({
     root: {
@@ -103,10 +104,10 @@ function Contact(props){
     const classes = useStyles();
     const fetchEmailTimoutTimer = React.useRef();
     const emailSendingNotificationTimer = React.useRef();
-    const [name, setName] = React.useState('Temp Name');
-    const [email, setEmail] = React.useState('Temp email@email.com');
-    const [subject, setSubject] = React.useState('Temp Subject');
-    const [message, setMessage] = React.useState('Temp message some message');
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [subject, setSubject] = React.useState('');
+    const [message, setMessage] = React.useState('');
     const [isEmailSendingDialogOpen, setEmailSendingDialogOpen] = React.useState(false);
     const [showSendingEmailProgress, setShowSendingEmailProgress] = React.useState(false);
     const [showEmailSendSuccedIcon, setShowEmailSendSuccedIcon] = React.useState(false);
@@ -207,7 +208,7 @@ function Contact(props){
             align = "center"
             style = {{color: "#ffffff", fontFamily: "Baloo Thambi 2"}}
             >
-                Contact
+                <TextLang textId = "contactHeader"/>
             </Typography>
             <form onSubmit = {handleSubmit.bind(this)}>
             <ThemeProvider theme = {textFieldTheme}>
@@ -228,9 +229,9 @@ function Contact(props){
                     style = {{height: "200"}}
                     md = {4}
                     >           
-                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Subject" variant = "filled" classes = {{root: classes.textField}} value = {subject} onChange = {onSubjectChange.bind(this)}/></Grid>
-                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Name" variant = "filled" classes = {{root: classes.textField}} value = {name} onChange = {onNameChange.bind(this)}/></Grid>
-                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Email" variant = "filled" classes = {{root: classes.textField}} value = {email} onChange = {onEmailChange.bind(this)}/></Grid>
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = {<TextLang textId = "contactInputSubject"/>} variant = "filled" classes = {{root: classes.textField}} value = {subject} onChange = {onSubjectChange.bind(this)}/></Grid>
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = {<TextLang textId = "contactInputName"/>} variant = "filled" classes = {{root: classes.textField}} value = {name} onChange = {onNameChange.bind(this)}/></Grid>
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = {<TextLang textId = "contactInputEmail"/>} variant = "filled" classes = {{root: classes.textField}} value = {email} onChange = {onEmailChange.bind(this)}/></Grid>
                     </Grid>
                     <Grid
                     container
@@ -241,7 +242,7 @@ function Contact(props){
                     alignItems = "center"
                     md = {4}
                     >
-                        <Grid item className = {classes.textfieldRoot}><TextField required label = "Message" variant = "filled" classes = {{root: classes.textField}} multiline rows = {20} value = {message} onChange = {onMessageChange.bind(this)}/></Grid>
+                        <Grid item className = {classes.textfieldRoot}><TextField required label = {<TextLang textId = "contactInputMessage"/>} variant = "filled" classes = {{root: classes.textField}} multiline rows = {20} value = {message} onChange = {onMessageChange.bind(this)}/></Grid>
                     </Grid>
                     <Grid item md = {2}/>
                 </Grid>
@@ -256,7 +257,7 @@ function Contact(props){
                             className={classes.button}
                             endIcon={<SendIcon/>}
                             >
-                                Send
+                                {<TextLang textId = "contactSendButton"/>}
                         </Button>
                     </Grid>
                 </Grid>

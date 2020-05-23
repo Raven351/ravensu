@@ -5,11 +5,11 @@ import jp from './jp'
 export const dictionaryList = {
     en,
     pl,
-    jp
+    // jp
 } 
 
 export const languageOptions = [
     {id: 'en', text: 'English'},
     {id: 'pl', text: 'Polski'},
-    {id: 'jp', text: '日本語'}
+    // {id: 'jp', text: '日本語'}
 ]

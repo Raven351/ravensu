@@ -35,7 +35,7 @@ responsiveFonts = responsiveFontSizes(responsiveFonts);
                         variant = "h3"
                         component = "h1"
                         paragraph = "true"
-                        style = {{fontFamily: '"Fredoka One'}}
+                        style = {{fontFamily: '"Balsamiq Sans"', fontWeight: 700}}
                         align = "left"
                     >
                         <TextLang textId = "homeHeader"/>
@@ -43,7 +43,7 @@ responsiveFonts = responsiveFontSizes(responsiveFonts);
                     <Typography
                         variant = "h6"
                         component= "p"
-                        style = {{fontFamily: '"Fredoka One', whiteSpace: "pre-line", marginTop: 50, marginLeft: 40}}
+                        style = {{fontFamily: '"Balsamiq Sans"', whiteSpace: "pre-line", marginTop: 50, marginLeft: 40, fontWeight: 700}}
                         align = "left"
                     >
                         <TextLang textId = "homeDescLine1"/>
@@ -51,7 +51,7 @@ responsiveFonts = responsiveFontSizes(responsiveFonts);
                     <Typography
                         variant = "h6"
                         component= "p"
-                        style = {{fontFamily: '"Fredoka One', whiteSpace: "pre-line", marginTop: 30, marginLeft: 80}}
+                        style = {{fontFamily: '"Balsamiq Sans"', whiteSpace: "pre-line", marginTop: 30, marginLeft: 80, fontWeight: 700}}
                         align = "left"
                     >
                         <TextLang textId = "homeDescLine2"/>
@@ -59,7 +59,7 @@ responsiveFonts = responsiveFontSizes(responsiveFonts);
                     <Typography
                         variant = "h6"
                         component= "p"
-                        style = {{fontFamily: '"Fredoka One', whiteSpace: "pre-line", marginTop: 30, marginLeft: 120}}
+                        style = {{fontFamily: '"Balsamiq Sans"', whiteSpace: "pre-line", marginTop: 30, marginLeft: 120, fontWeight: 700}}
                         align = "left"
                     >
                         <TextLang textId = "homeDescLine3"/>

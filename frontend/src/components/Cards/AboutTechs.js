@@ -2,6 +2,7 @@ import React from 'react'
 import { Chip, Avatar, Paper, Tooltip, Typography, Grid, Box } from '@material-ui/core'
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import TextLang from '../TextLang';
 
 const Picture = props => (
     <Avatar source={props.source} />
@@ -50,7 +51,7 @@ export default function AboutTechs() {
             component = "h2"
             paragraph = "true"
             >
-            Technologies I work with
+            <TextLang textId = "aboutTechnologiesHeader"/>
             </Typography>
             <Grid container spacing = {4}>
                 <Grid item>

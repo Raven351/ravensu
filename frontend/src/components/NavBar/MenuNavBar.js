@@ -19,6 +19,12 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: "transparent"
         }
     },
+    tab:{
+        [theme.breakpoints.up('lg')]:{
+            minWidth: 200,
+        }
+       
+    },
 }));
 
 
@@ -52,10 +58,10 @@ function MenuNavBar(props){
     return (
         <div className = {classes.appBar}>
             <Tabs style ={{flexGrow: 1}} value = {tabValue} onChange = {handleTabChange} classes = {{indicator: classes.tabsIndicator} }>
-                <Tab component={Link} to="/" label = {<TextLang textId = "navHome"/>} disableTouchRipple = "true" value={0}/>
-                <Tab component = {Link} label = {<TextLang textId = "navAbout"/>} to = {{pathname: "/about", state: {about: true}}} disableTouchRipple = "true" value = {1}/>
-                <Tab component = {Link} label = {<TextLang textId = "navProjects"/>} to = "/projects" disableTouchRipple = "true" value = {2}/>
-                <Tab component = {Link} label = {<TextLang textId = "navContact"/>} to = "/contact" disableTouchRipple = "true" value = {4}/> 
+                <Tab component={Link} to="/" label = {<TextLang textId = "navHome"/>} disableTouchRipple = "true" value={0} className = {classes.tab}/>
+                <Tab component = {Link} label = {<TextLang textId = "navAbout"/>} to = {{pathname: "/about", state: {about: true}}} disableTouchRipple = "true" value = {1} className = {classes.tab}/>
+                <Tab component = {Link} label = {<TextLang textId = "navProjects"/>} to = "/projects" disableTouchRipple = "true" value = {2} className = {classes.tab}/>
+                <Tab component = {Link} label = {<TextLang textId = "navContact"/>} to = "/contact" disableTouchRipple = "true" value = {4} className = {classes.tab}/> 
             </Tabs>
             <span style = {{marginTop: 10}}>
                 <SocialMedia style ={{flexGrow: 1}}/>

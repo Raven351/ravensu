@@ -38,7 +38,7 @@ function App() {
   const theme = createMuiTheme({    
     typography:{
             fontFamily:[
-                '"Baloo Thambi 2"', '"Fredoka One"'
+                '"Baloo Thambi 2"', '"Fredoka One"', '"Balsamiq Sans"', 'Bangers'
             ]
         }
     }

@@ -1,4 +1,4 @@
-const programmingLanguages = [
+const Technologies = [
     { key: 0, name: "C#", pictureSrc:  "/img/ChipsLogos/chashlogo.png", lvl: 3 },
     { key: 1, name: "Java", pictureSrc: '/img/ChipsLogos/javalogo3.png', lvl: 2},
     { key: 2, name: ".NET", pictureSrc: '/img/ChipsLogos/netlogo.png', lvl: 3},
@@ -12,4 +12,4 @@ const programmingLanguages = [
     { key: 10, name: "React", pictureSrc: '/img/ChipsLogos/reactlogo.png', lvl: 3},
 ]
 
-export default programmingLanguages
+export default Technologies

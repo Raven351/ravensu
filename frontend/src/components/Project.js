@@ -2,7 +2,7 @@ import React from 'react'
 import {makeStyles, createMuiTheme, responsiveFontSizes, ThemeProvider} from '@material-ui/core/styles' 
 import {Grid, Paper, Typography} from '@material-ui/core'
 import ProjectsList from './Constant/ProjectsList'
-import Technologies from './Constant/ProgrammingLanguages'
+import Technologies from './Constant/Technologies'
 
 let muiTheme = createMuiTheme();
 muiTheme = responsiveFontSizes(muiTheme);

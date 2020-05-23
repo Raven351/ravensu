@@ -2,7 +2,7 @@ import React from 'react';
 import {makeStyles, createMuiTheme} from '@material-ui/core/styles'
 import { Grid, Card, CardActionArea, CardMedia, Typography, CardContent, Avatar, Tooltip, Box, ThemeProvider } from '@material-ui/core';
 import ProjectsList from '../Constant/ProjectsList'
-import programmingLanguages from '../Constant/ProgrammingLanguages'
+import programmingLanguages from '../Constant/Technologies'
 
 const useStyles = makeStyles( theme => ({
     root: {

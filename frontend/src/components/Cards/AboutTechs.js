@@ -3,15 +3,12 @@ import { Chip, Avatar, Paper, Tooltip, Typography, Grid, Box } from '@material-u
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import TextLang from '../TextLang';
+import Technologies from '../Constant/Technologies'
 
 const Picture = props => (
     <Avatar source={props.source} />
     //<img src = {props.source} height = "50" width = "50" style={{display: "flex"}}/>
 );
-const programmingLanguages = [
-    { key: 0, name: "C#", pictureSrc:  "/img/ChipsLogos/chashlogo.png", lvl: 3 },
-    { key: 1, name: "Java", pictureSrc: '/img/ChipsLogos/javalogo3.png', lvl: 2},
-]
 
 function starLevel(level){
     var stars = [];
@@ -26,9 +23,10 @@ function TechChips(props) {
         <>
             {props.array.map(({name, key, pictureSrc, lvl}) => {
                 return (
-                    <Box m={1}>
-                        <TechChip key = {key} name = {name} pictureSrc = {pictureSrc} lvl = {lvl}/>
-                    </Box>                  
+                    <div style = {{margin: "4px 4px 4px 0px", float: "left"}}>
+                        <TechChip key = {key} name = {name} pictureSrc = {pictureSrc} lvl = {lvl}/> 
+                    </div>
+                    
                 )}
             )}
         </>
@@ -53,12 +51,7 @@ export default function AboutTechs() {
             >
             <TextLang textId = "aboutTechnologiesHeader"/>
             </Typography>
-            <Grid container spacing = {4}>
-                <Grid item>
-                    <TechChips array={programmingLanguages} />
-                </Grid>
-            </Grid>
-            
+            <TechChips array={Technologies} />      
         </>
     );
 }

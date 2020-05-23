@@ -3,7 +3,7 @@ import {makeStyles, createMuiTheme} from '@material-ui/core/styles'
 import {Grid, Paper, Typography, Link, Box, Chip, ThemeProvider} from '@material-ui/core'
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ProjectsList from './Constant/ProjectsList'
-import TechnologiesList from './Constant/ProgrammingLanguages'
+import TechnologiesList from './Constant/Technologies'
 
 const useStyles = makeStyles(theme => ({
     rootContainer:{

@@ -19,10 +19,17 @@ export const useStyles = makeStyles( theme => ({
         
     },
 
+    header:{
+        marginBottom: "20px",
+        [theme.breakpoints.down("sm")]:{
+            marginLeft: "40px",
+        },
+    },
+
     containerCard:{
         width: 350,
         [theme.breakpoints.down("sm")]:{
-            marginLeft: "20px",
+            marginLeft: "40px",
         },
     },
 
@@ -58,14 +65,14 @@ function Projects(){
             justify = "center"
             spacing = {5}
         >
-            <Grid item xs = {12} style = {{marginBottom: "20px"}}>
+            <Grid item xs = {12} className = {classes.header}>
                 <Typography
                 variant = "h4"
                 component = "h1"
                 align = "center"
                 style = {{color: "#ffffff", fontFamily: "Baloo Thambi 2"}}
                 >
-                    <TextLang textId = "projectHeader"/>
+                    <TextLang textId = "projectsHeader"/>
                 </Typography>
             </Grid>
             {displayProjectCards}

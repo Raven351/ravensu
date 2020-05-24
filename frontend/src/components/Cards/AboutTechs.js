@@ -23,10 +23,7 @@ function TechChips(props) {
         <>
             {props.array.map(({name, key, pictureSrc, lvl}) => {
                 return (
-                    <div style = {{margin: "4px 4px 4px 0px", float: "left"}}>
-                        <TechChip key = {key} name = {name} pictureSrc = {pictureSrc} lvl = {lvl}/> 
-                    </div>
-                    
+                        <TechChip key = {key} name = {name} pictureSrc = {pictureSrc} lvl = {lvl}/>               
                 )}
             )}
         </>
@@ -36,7 +33,7 @@ function TechChips(props) {
 function TechChip(props){
     return(
         <>
-            <Chip key={props.key} label={props.name} avatar={<Avatar alt="picture" src={props.pictureSrc}/>} />
+            <Chip key={props.key} label={props.name} avatar={<Avatar alt="picture" src={props.pictureSrc}/>}  style = {{margin: "4px 4px 4px 0px"}}/>
         </>
     );
 }
@@ -51,7 +48,8 @@ export default function AboutTechs() {
             >
             <TextLang textId = "aboutTechnologiesHeader"/>
             </Typography>
-            <TechChips array={Technologies} />      
+                <TechChips array={Technologies} />
+      
         </>
     );
 }

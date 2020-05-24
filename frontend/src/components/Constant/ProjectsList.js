@@ -4,7 +4,7 @@ const ProjectsList = [
     { 
         key: 0, 
         name: "ravensu",  
-        pictureSrc:  "/img/ProjectsPictures/downhillpay.png",
+        pictureSrc:  "/img/ProjectsPictures/ravensu.png",
         technologiesIndexes: [7,8,9,10],
         github: "https://github.com/Raven351/ravensu",
         descShort: <TextLang textId = "projectShortDescRavensu"/>,

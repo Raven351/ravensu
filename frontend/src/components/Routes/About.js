@@ -9,7 +9,9 @@ import SmsIcon from '@material-ui/icons/Sms';
 import AboutCard from '../Cards/AboutCard'
 import AboutDetails from '../Cards/AboutDetails'
 import AboutTechs from '../Cards/AboutTechs';
+import AboutTools from '../Cards/AboutTools'
 import withWidth from '@material-ui/core/withWidth'
+
 
 const useStyles = makeStyles(theme => ({
     rootContainer:{
@@ -71,11 +73,15 @@ function About(){
             </Grid>
             <Grid container item xs = {12} sm = {12} md = {6} lg = {5} direction = "column" justify="flex-start" alignItems = "flex-start" style = {{margin: "20px"}}>
                 <Paper style = {{padding: 25, maxWidth: 800}}>
-                    <Grid item >
-                        <AboutDetails/>
+                    <Grid container item>
+                            <AboutDetails/>
+                        
                     </Grid>
                     <Grid item >
                         <AboutTechs/>
+                    </Grid>
+                    <Grid item style = {{marginTop: "20px"}}>
+                        <AboutTools/>
                     </Grid>
                 </Paper>
             </Grid>

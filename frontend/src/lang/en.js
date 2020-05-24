@@ -21,7 +21,7 @@ const en = {
     aboutDevToolsHeader: "Tools I use",
     aboutMethodologies: "Agile methodologies and Design Patterns I got to know",
 
-    projectHeader: "Projects",
+    projectsHeader: "Projects",
 
     contactHeader :"Contact",
     contactInputSubject : "Subject",

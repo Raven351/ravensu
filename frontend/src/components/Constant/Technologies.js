@@ -1,9 +1,9 @@
 const Technologies = [
-    { key: 0, name: "C#", pictureSrc:  "/img/ChipsLogos/chashlogo.png", lvl: 3 },
-    { key: 1, name: "Java", pictureSrc: '/img/ChipsLogos/javalogo3.png', lvl: 2},
+    { key: 0, name: "C++", pictureSrc: '/img/ChipsLogos/c++logo.png', lvl: 3},
+    { key: 1, name: "C#", pictureSrc:  "/img/ChipsLogos/chashlogo.png", lvl: 3 },
     { key: 2, name: ".NET", pictureSrc: '/img/ChipsLogos/netlogo.png', lvl: 3},
-    { key: 3, name: "Arduino", pictureSrc: '/img/ChipsLogos/arduino.png', lvl: 3},
-    { key: 4, name: "C++", pictureSrc: '/img/ChipsLogos/c++logo.png', lvl: 3},
+    { key: 3, name: "Java", pictureSrc: '/img/ChipsLogos/javalogo3.png', lvl: 2},
+    { key: 4, name: "Arduino", pictureSrc: '/img/ChipsLogos/arduino.png', lvl: 3},
     { key: 5, name: "Json", pictureSrc: '/img/ChipsLogos/jsonlogo.png', lvl: 3},
     { key: 6, name: "RestSharp", pictureSrc: '/img/ChipsLogos/restsharplogo.png', lvl: 3},
     { key: 7, name: "HTML", pictureSrc: '/img/ChipsLogos/htmllogo.png', lvl: 3},

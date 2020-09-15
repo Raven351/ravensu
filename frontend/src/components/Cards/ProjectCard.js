@@ -7,6 +7,7 @@ import programmingLanguages from '../Constant/Technologies'
 const useStyles = makeStyles( theme => ({
     root: {
         width: "100%",
+        //minHeight: "400px"
     },
     media: {
         width: "auto",

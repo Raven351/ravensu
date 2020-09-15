@@ -74,8 +74,7 @@ function About(){
             <Grid container item xs = {12} sm = {12} md = {6} lg = {5} direction = "column" justify="flex-start" alignItems = "flex-start" style = {{margin: "20px"}}>
                 <Paper style = {{padding: 25, maxWidth: 800}}>
                     <Grid container item>
-                            <AboutDetails/>
-                        
+                        <AboutDetails/>
                     </Grid>
                     <Grid item >
                         <AboutTechs/>

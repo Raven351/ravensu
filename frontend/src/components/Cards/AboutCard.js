@@ -2,7 +2,6 @@ import React from 'react'
 import {Box, Paper, makeStyles, Typography, CardHeader, Avatar, CardContent, Grid, Divider} from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
-import ProfilePicture from "../../img/profilepicture.jpg"
 import HomeIcon from '@material-ui/icons/Home';
 import SchoolIcon from '@material-ui/icons/School';
 import SmsIcon from '@material-ui/icons/Sms';
@@ -41,6 +40,12 @@ const useStyles = makeStyles(theme => ({
 
 function AvatarContent(){
     const classes = useStyles()
+    const [isAvatarLoaded, setIsAvatarLoaded] = React.useState(false);
+    const handleImageLoaded = () => {
+        setIsAvatarLoaded =true;
+        alert("state set");
+    }
+
     return(
         <Grid 
         container
@@ -49,8 +54,8 @@ function AvatarContent(){
         justify = "center"
         alignItems = "center"
         >
-            <Grid item style = {{padding: 2}} >
-                <Avatar className = {classes.avatar} src={ProfilePicture} alt="Bartosz Baum" style = {{alignSelf: "center"}}/>
+            <Grid item style = {{padding: 2}}>
+                <Avatar className = {classes.avatar} src={"/img/profilepicture.jpg"} alt="Bartosz Baum" style = {{alignSelf: "center"}} onLoad = {() => handleImageLoaded.bind(this)}/>
             </Grid>
             
             <Divider variant = "fullWidth" classes = {{root: classes.dividerColor}} flexItem = "true" />

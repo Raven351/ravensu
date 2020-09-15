@@ -4,7 +4,7 @@ const pl = {
     navProjects : "Przykładowe projekty",
     navContact : "Kontakt",
 
-    homeHeader : "Cześć. Witaj na dev.ravensu.com",
+    homeHeader : "Cześć. Witaj na ",
     homeDescLine1 : "Mam na imię Bartek i jestem absolewnetem studiów inżynierskich z informatyki o specjalizacji programowanie.",
     homeDescLine2 : "Na tej stronie znajdziesz więcej informacji o mnie, technologiach jakich używam oraz projektach jakie wykonałem.",
     homeDescLine3 : "W przypadku jakichkolwiek pytań bądź chęci nawiązania współpracy, możesz do mnie napisać przy pomocy formularza kontaktowego.",

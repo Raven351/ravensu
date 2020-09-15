@@ -19,6 +19,17 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]:{
             marginTop: "90px"
         }
+    },
+    typographyHeader:{
+        fontFamily: '"Balsamiq Sans"', 
+        fontWeight: 700,
+    },
+    typographyH6:{
+        fontFamily: '"Balsamiq Sans"', 
+        whiteSpace: "pre-line", 
+        marginTop: 50, 
+        marginLeft: 40, 
+        fontWeight: 700
     }
 
     
@@ -35,15 +46,16 @@ responsiveFonts = responsiveFontSizes(responsiveFonts);
                         variant = "h3"
                         component = "h1"
                         paragraph = "true"
-                        style = {{fontFamily: '"Balsamiq Sans"', fontWeight: 700}}
+                        className = {classes.typographyHeader}
                         align = "left"
                     >
                         <TextLang textId = "homeHeader"/>
+                        <span className = {classes.typographyHeader} style= {{color: "#14e0ff"}}>dev.ravensu.com</span>
                     </Typography>
                     <Typography
                         variant = "h6"
                         component= "p"
-                        style = {{fontFamily: '"Balsamiq Sans"', whiteSpace: "pre-line", marginTop: 50, marginLeft: 40, fontWeight: 700}}
+                        className = {classes.typographyH6}
                         align = "left"
                     >
                         <TextLang textId = "homeDescLine1"/>
@@ -51,7 +63,8 @@ responsiveFonts = responsiveFontSizes(responsiveFonts);
                     <Typography
                         variant = "h6"
                         component= "p"
-                        style = {{fontFamily: '"Balsamiq Sans"', whiteSpace: "pre-line", marginTop: 30, marginLeft: 80, fontWeight: 700}}
+                        className = {classes.typographyH6}
+                        style = {{marginLeft: "80px"}}
                         align = "left"
                     >
                         <TextLang textId = "homeDescLine2"/>
@@ -59,7 +72,8 @@ responsiveFonts = responsiveFontSizes(responsiveFonts);
                     <Typography
                         variant = "h6"
                         component= "p"
-                        style = {{fontFamily: '"Balsamiq Sans"', whiteSpace: "pre-line", marginTop: 30, marginLeft: 120, fontWeight: 700}}
+                        className = {classes.typographyH6}
+                        style = {{marginLeft: "120px"}}
                         align = "left"
                     >
                         <TextLang textId = "homeDescLine3"/>

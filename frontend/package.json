@@ -8,12 +8,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
-<<<<<<< HEAD:package.json
-    "konva": "^4.1.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-konva": "^16.12.0-0",
-=======
     "axios": "^0.19.2",
     "nodemailer": "^6.4.6",
     "particlesjs": "^2.2.3",
@@ -21,7 +15,6 @@
     "react-dom": "^16.12.0",
     "react-particles-js": "^2.7.1",
     "react-router-dom": "^5.1.2",
->>>>>>> master:frontend/package.json
     "react-scripts": "3.3.0"
   },
   "scripts": {

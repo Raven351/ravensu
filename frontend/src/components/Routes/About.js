@@ -2,7 +2,6 @@ import React from 'react'
 import {Box, Paper, makeStyles, Typography, CardHeader, Avatar, CardContent, Grid, Divider} from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
-import ProfilePicture from "../../img/profilepicture.jpg"
 import HomeIcon from '@material-ui/icons/Home';
 import SchoolIcon from '@material-ui/icons/School';
 import SmsIcon from '@material-ui/icons/Sms';

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 var cors = require('cors');
+const serverless = require('serverless-http');
 const config = require('./config');
 
 
@@ -31,12 +32,13 @@ transporter.verify((error, success) => {
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.listen(8001);
-app.get('/', (req,res) => {
+//app.listen(8001);
+
+router.get('/', (req,res) => {
     res.send('Ravensu API');
 })
 
-app.post('/send', (req, res, next)=>{
+router.post('/send', (req, res, next)=>{
     console.log('/send POST request');
     var name = req.body.name;
     var email = req.body.email;
@@ -59,6 +61,7 @@ app.post('/send', (req, res, next)=>{
     })
 })
 
+app.use('/.netlify/functions/api', router)
 
-
+module.exports.handler = serverless(app);
 

@@ -3,7 +3,6 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 var cors = require('cors');
 const serverless = require('serverless-http');
-const config = require('./config');
 
 
 let transporter = nodemailer.createTransport({
@@ -11,14 +10,14 @@ let transporter = nodemailer.createTransport({
     port: 2525,
     secure: false,
     auth: {
-      user: config.USER,
-      pass: config.PASS
+      user: process.env.USERNAME,
+      pass: process.env.PASS
     }
 });
 
 console.log("Transporter host: " + transporter.options.host);
-console.log("Username: " + config.USER);
-console.log ("Password: " + config.PASS);
+console.log("Username: " + process.env.USERNAME);
+console.log ("Password: " + process.env.PASS);
 
 transporter.verify((error, success) => {
     if (error) {

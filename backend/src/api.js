@@ -6,18 +6,18 @@ const serverless = require('serverless-http');
 
 
 let transporter = nodemailer.createTransport({
-    host: 'smtp.mailtrap.io',
-    port: 2525,
-    secure: false,
+    host: process.env.HOST,
+    port: process.env.EMAIL_PORT,
+    secure: process.env.EMAIL_SECURE,
     auth: {
-      user: process.env.USERNAME,
-      pass: process.env.PASS
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD
     }
 });
 
 console.log("Transporter host: " + transporter.options.host);
-console.log("Username: " + process.env.USERNAME);
-console.log ("Password: " + process.env.PASS);
+console.log("Username: " + process.env.EMAIL_USERNAME);
+console.log ("Password: " + process.env.EMAIL_PASSWORD);
 
 transporter.verify((error, success) => {
     if (error) {

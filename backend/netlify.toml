@@ -3,7 +3,7 @@
 
 [build.environment]
     EMAIL_HOST = "smtp.mailtrap.io"
-    EMAIL_PORT = 2525
-    EMAIL_SECURE = false
+    EMAIL_PORT = "2525"
+    EMAIL_SECURE = "false"
     EMAIL_USERNAME = ""
     EMAIL_PASSWORD = ""

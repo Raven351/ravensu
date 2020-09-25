@@ -2,4 +2,5 @@ frontend/public/img/ProjectsPictures/bustestphoto.jpg
 frontend/public/img/ProjectsPictures/skiingphoto.jpg
 frontend/src/img/profilepicture.jpg
 backend/.env
+frontend/.env
 backend/functions

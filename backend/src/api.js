@@ -47,7 +47,7 @@ router.post('/send', (req, res, next)=>{
 
     var mail = {
         from: `"${name} " ${email}`,
-        to: 'adam.panzert34@gmail.com',
+        to: process.env.EMAIL_ADDRESS,
         subject: subject,
         text: content
     }

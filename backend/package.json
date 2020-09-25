@@ -4,13 +4,17 @@
   "description": "Backend for ravensu project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "author": "Bartosz Baum",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "nodemailer": "^6.4.6"
+    "netlify-lambda": "^2.0.1",
+    "nodemailer": "^6.4.6",
+    "serverless-http": "^2.5.0"
   }
 }

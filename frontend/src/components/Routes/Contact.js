@@ -80,7 +80,7 @@ function EmailSentErrorDialog(props){
     const classes = useStyles();
     const {isOpen, onClose, errorCode, errorMessage, errorStack} = props;
     //let errorDialogContent = `Error Code: ${errorCode}\n${errorMessage}\n\n${errorStack}\nPlease let me know about this error at email@email.com\nAttach screenshot of this error message if possible.`
-    let errorDialogContent = `Please let me know about this error at email@email.com`
+    let errorDialogContent = `Please let me know about this error at bartosz.baum@ravensu.com\n\n` + errorCode + "\n\n" + errorMessage
     return(
         <div>
             <Dialog open = {isOpen} onClose = {onClose}>
@@ -164,7 +164,7 @@ function Contact(props){
         e.preventDefault();
         setEmailSendingDialogOpen(true);
         setShowSendingEmailProgress(true);
-        axios.post("http://192.168.1.13:8001/send", mailData, {timeout: 10000, headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}})
+        axios.post(process.env.CONTACT_SEND_ENDPOINT, mailData, {timeout: 10000, headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}})
         .then((response) =>{
             if (response.data.status === 'success'){
                 setShowSendingEmailProgress(false);

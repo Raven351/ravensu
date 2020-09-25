@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.31ec8b94.chunk.css",
+    "main.js": "/static/js/main.fce1bfd4.chunk.js",
+    "main.js.map": "/static/js/main.fce1bfd4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e80a3bac.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e80a3bac.js.map",
+    "static/js/2.f672214f.chunk.js": "/static/js/2.f672214f.chunk.js",
+    "static/js/2.f672214f.chunk.js.map": "/static/js/2.f672214f.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.50b3e148a26b9791c6f926806f85a12f.js": "/precache-manifest.50b3e148a26b9791c6f926806f85a12f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.31ec8b94.chunk.css.map": "/static/css/main.31ec8b94.chunk.css.map",
+    "static/js/2.f672214f.chunk.js.LICENSE": "/static/js/2.f672214f.chunk.js.LICENSE",
+    "static/media/App.css": "/static/media/ravensu background.d89fba4e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e80a3bac.js",
+    "static/js/2.f672214f.chunk.js",
+    "static/css/main.31ec8b94.chunk.css",
+    "static/js/main.fce1bfd4.chunk.js"
+  ]
+}

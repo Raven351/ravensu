@@ -80,7 +80,7 @@ function EmailSentErrorDialog(props){
     const classes = useStyles();
     const {isOpen, onClose, errorCode, errorMessage, errorStack} = props;
     //let errorDialogContent = `Error Code: ${errorCode}\n${errorMessage}\n\n${errorStack}\nPlease let me know about this error at email@email.com\nAttach screenshot of this error message if possible.`
-    let errorDialogContent = `Please let me know about this error at bartosz.baum@ravensu.com\n\n` + errorCode + "\n\n" + errorMessage
+    let errorDialogContent = `Please let me know about this error at bartosz.baum@ravensu.com\n\n${errorCode}\n\n${errorMessage}`
     return(
         <div>
             <Dialog open = {isOpen} onClose = {onClose}>

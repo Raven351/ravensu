@@ -19,6 +19,15 @@ const ProjectsList = [
         descShort: <TextLang textId = "projectShortDescDownhillPay"/>,
         desc: <TextLang textId = "projectLongDescDownhillPay"/>
     },
+    { 
+        key: 2, 
+        name: "GAiT Podzialy",  
+        pictureSrc:  "/img/ProjectsPictures/GAiT_Podzialy.png",
+        technologiesIndexes: [3, 11],
+        github: "https://github.com/Raven351/GAiTPodzialy",
+        descShort: <TextLang textId = "projectShortDescGAiTPodzialy"/>,
+        desc: <TextLang textId = "projectLongDescGAiTPodzialy"/>
+    },
 ]
 
 export default ProjectsList

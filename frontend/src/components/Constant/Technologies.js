@@ -10,6 +10,7 @@ const Technologies = [
     { key: 8, name: "CSS", pictureSrc: '/img/ChipsLogos/csslogo.png', lvl: 3},
     { key: 9, name: "JavaScript", pictureSrc: '/img/ChipsLogos/jslogo.png', lvl: 3},
     { key: 10, name: "React", pictureSrc: '/img/ChipsLogos/reactlogo.png', lvl: 3},
+    { key: 11, name: "Android", pictureSrc: '/img/ChipsLogos/androidlogo.png', lvl: 3},
 ]
 
 export default Technologies

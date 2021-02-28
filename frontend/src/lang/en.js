@@ -36,6 +36,9 @@ const en = {
     
     projectShortDescDownhillPay: "Thesis project. Skiing payment system that uses RFID cards.",
     projectLongDescDownhillPay: "Thesis project. Skiing payment system that uses RFID cards.\n This project includes C# client app for card registration and top-ups, PostgreSQL DB scripts, REST API generated through postgREST software, and C++ program for Arduino which is used as cards reader for client app. \n I've been working on this project individually and used Git as a version control tool. Created client application is object-oriented and uses WPF. It also uses RESTSharp library in order to communicate with REST API provided by postgREST", 
+
+    projectShortDescGAiTPodzialy:"Android application made for drivers of Gdanskie Autobusy i Tramwaje.",
+    projectLongDescGAiTPodzialy: "Java application for Android devices. Created for drivers of Gdańskie Autobusy i Tramwaje to make it possible for them to check their work schedule in the fastest and most transparent way possible. It is unofficial application created in free time as a hobby, therefore it doesn’t have direct access for needed data. Because of that it uses „web-scrapping” method in order to obtain data from employees website after successfuly logging in the user."
 }
 
 export default en

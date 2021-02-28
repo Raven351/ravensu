@@ -34,6 +34,9 @@ const pl = {
 
     projectShortDescDownhillPay: "Projekt inżynierski. System płatności używający kard RFID w scenariuszu zakładającym obsługę wyciągów narcarskich.",
     projectLongDescDownhillPay: "Projekt zawiera aplikacje kliencką w języku C# służącą rejestracji nowych kart oraz ich doładowań, bazę danych w systemie PostgreSQL i skrypty ją tworzące, REST API generowane za pomocą programu postgREST, program dla Arduino napisany w języku C++ do obsługi czytnika i komunikacji z aplikacją kliencką.\nProjekt został utworzony indywidualnie przeze mnie i w trakcie jego tworzenia wykorzystano system kontroli wersji GIT. Utworzona aplikacja kliencka jest wytworzona w sposób obiektowy i korzysta z technologii WPF do obsługi interfejsu graficznego. Aplikacja wykorzystuje również bibliotekę RESTSharp w celu zapewnienia komunikacji z REST API udostępnianym przez postgREST. ", 
+
+    projectShortDescGAiTPodzialy:"Aplikacja na systemy Android stworzona dla kierowców i motorniczych spółki Gdańskie Autobusy i Tramwaje.",
+    projectLongDescGAiTPodzialy: "Aplikacja na urządzenia z systemem Android napisana w języku Java. Stworzona dla kierowców i motorniczych pracujących w spółce Gdańskie Autobusy i Tramwaje w celu umożliwieia im podglądu swojego grafiku w sposób najszybszy i najbardziej przystępny. Aplikacja nieoficjalna stworzona w wolnym czasie jako hobby. Nie ma ona bezpośredniego dostępu do niezbędnych danych dlatego po poprawnym zalogowaniu użytkownika używa metody \"web scrappingu\" w celu pobrania niezbędnych danych grafiku pracownika."
 }
 
 export default pl
